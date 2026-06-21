@@ -113,7 +113,7 @@ export const realisations = [
   {
     slug: "exemple-1",
     placeholder: true,
-    image: "", // ex. "/realisations/chantier-1.jpg" — déposer le fichier dans public/realisations/
+    image: "/photos/realisation-1.webp", // ex. "/realisations/chantier-1.jpg" — déposer le fichier dans public/realisations/
     titre: "〔Chantier 1 — titre〕",
     typologie: "Bureaux / tertiaire",
     lieu: "〔Lieu〕",
@@ -124,7 +124,7 @@ export const realisations = [
   {
     slug: "exemple-2",
     placeholder: true,
-    image: "",
+    image: "/photos/realisation-2.webp",
     titre: "〔Chantier 2 — titre〕",
     typologie: "Commerce / ERP",
     lieu: "〔Lieu〕",
@@ -135,7 +135,7 @@ export const realisations = [
   {
     slug: "exemple-3",
     placeholder: true,
-    image: "",
+    image: "/photos/realisation-3.webp",
     titre: "〔Chantier 3 — titre〕",
     typologie: "Rénovation",
     lieu: "〔Lieu〕",
@@ -147,16 +147,13 @@ export const realisations = [
 
 // Exemple de RÉDACTION (montre le ton/longueur attendus, à remplacer)
 export const realisationExempleRedige = {
-  titre: "Rénovation CVC d'un plateau de bureaux",
-  image: "",
-  typologie: "Bureaux — exemple de mise en forme",
-  lieu: "Métropole — exemple",
-  contexte:
-    "Plateau tertiaire d'environ 1 200 m² dont l'installation existante ne suivait plus la densité d'occupation après réaménagement.",
-  solution:
-    "Étude de redimensionnement, remplacement par un système VRV à récupération d'énergie, reprise des réseaux et mise en service avec constitution du dossier réglementaire.",
-  resultat:
-    "Confort thermique homogène sur l'ensemble du plateau et pilotage simplifié pour l'exploitant.",
+  titre: "〔Chantier 4 — titre〕",
+  image: "/photos/realisation-4.webp",
+  typologie: "〔Typologie〕",
+  lieu: "〔Lieu〕",
+  contexte: "〔Contexte : type de bâtiment, surface, problématique de départ.〕",
+  solution: "〔Solution Bathermex : équipements posés, particularités techniques.〕",
+  resultat: "〔Résultat : confort, performance, délai, satisfaction client.〕",
 };
 
 // --- FAQ (réassurance + SEO léger) ---------------------------
