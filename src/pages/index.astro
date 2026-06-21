@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import CTA from "../components/CTA.astro";
-import { reassurance, services, methode, realisations, heroImages } from "../data/content";
+import { reassurance, services, methode, apercuAccueil, heroImages } from "../data/content";
 import { site } from "../data/site";
 ---
 
@@ -101,7 +101,7 @@ import { site } from "../data/site";
       <a href="/realisations" class="link-copper text-sm font-medium">Toutes les réalisations →</a>
     </div>
     <div class="mt-9 grid gap-5 md:grid-cols-3">
-      {realisations.map((r) => (
+      {apercuAccueil.map((r) => (
         <article class="card overflow-hidden">
           {r.image
             ? <img src={r.image} alt={r.titre} width="640" height="480" class="aspect-[4/3] w-full border-b border-mist object-cover" loading="lazy" />

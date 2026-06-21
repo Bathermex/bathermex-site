@@ -146,6 +146,13 @@ export const realisations = [
 ];
 
 // Exemple de RÉDACTION (montre le ton/longueur attendus, à remplacer)
+// --- Aperçu accueil (3 photos PROPRES à l'accueil, indépendantes des réalisations) ---
+export const apercuAccueil = [
+  { image: "/photos/accueil-1.webp", typologie: "Bureaux / tertiaire", titre: "〔Chantier 1 — titre〕", contexte: "〔Contexte : type de bâtiment, surface, problématique de départ.〕" },
+  { image: "/photos/accueil-2.webp", typologie: "Commerce / ERP", titre: "〔Chantier 2 — titre〕", contexte: "〔Contexte du chantier.〕" },
+  { image: "/photos/accueil-3.webp", typologie: "Rénovation", titre: "〔Chantier 3 — titre〕", contexte: "〔Contexte du chantier.〕" },
+];
+
 export const realisationExempleRedige = {
   titre: "〔Chantier 4 — titre〕",
   image: "/photos/realisation-4.webp",
