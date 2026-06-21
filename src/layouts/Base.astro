@@ -1,0 +1,58 @@
+---
+import "@fontsource-variable/inter";
+import "@fontsource-variable/space-grotesk";
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../data/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+const pageTitle = title ? `${title} · ${site.name}` : `${site.name} — ${site.baseline}`;
+const pageDesc = description ?? site.description;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://bathermex.fr").href;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDesc} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0e1a1f" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDesc} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- schema.org LocalBusiness (compléter SIRET/tél/adresse réels) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HVACBusiness",
+      name: "Bathermex",
+      description: site.description,
+      areaServed: ["Provence-Alpes-Côte d'Azur", "Île-de-France"],
+      address: { "@type": "PostalAddress", addressLocality: "Allauch", postalCode: "13190", addressCountry: "FR" },
+      url: canonical,
+    })} />
+  </head>
+  <body>
+    <a href="#contenu" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-ink focus:px-4 focus:py-2 focus:text-white">Aller au contenu</a>
+    <Header />
+    <main id="contenu">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

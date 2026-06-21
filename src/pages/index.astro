@@ -1,0 +1,116 @@
+---
+import Base from "../layouts/Base.astro";
+import CTA from "../components/CTA.astro";
+import { reassurance, services, methode, realisations } from "../data/content";
+import { site } from "../data/site";
+---
+
+<Base>
+  <!-- ============ HERO ============ -->
+  <section class="relative overflow-hidden bg-ink text-fog">
+    <div class="pointer-events-none absolute inset-0 opacity-[0.06]"
+         style="background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:46px 46px;"></div>
+    <div class="relative mx-auto max-w-6xl px-5 py-24 md:py-32">
+      <p class="eyebrow">VRV / DRV · Tertiaire · PACA &amp; Île-de-France</p>
+      <h1 class="mt-5 max-w-3xl text-4xl font-semibold leading-[1.08] text-white md:text-6xl">
+        La climatisation tertiaire, maîtrisée du dimensionnement à la maintenance.
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-fog/80">{site.tagline}</p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a href="/realisations" class="btn btn-light">Voir nos réalisations</a>
+        <a href="/contact" class="btn btn-ghost !border-white/25 !text-white hover:!border-copper">Demander un devis</a>
+      </div>
+      <div class="mt-12 flex flex-wrap items-center gap-x-8 gap-y-2 text-sm text-fog/55">
+        <span>Spécialiste VRV / DRV</span>
+        <span class="hidden h-1 w-1 rounded-full bg-copper sm:block"></span>
+        <span>Allauch (13)</span>
+        <span class="hidden h-1 w-1 rounded-full bg-copper sm:block"></span>
+        <span>Paris / Île-de-France</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RÉASSURANCE ============ -->
+  <section class="mx-auto max-w-6xl px-5 py-16">
+    <div class="grid gap-px overflow-hidden rounded-xl border border-mist bg-mist sm:grid-cols-2 lg:grid-cols-4">
+      {reassurance.map((r) => (
+        <div class="bg-paper p-6">
+          <h2 class="font-display text-base font-semibold text-ink">{r.titre}</h2>
+          <p class="mt-2 text-sm leading-relaxed text-slate">{r.texte}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="mx-auto max-w-6xl px-5 py-16">
+    <div class="copper-rule mb-5"></div>
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <h2 class="max-w-xl text-3xl font-semibold text-ink">Nos services</h2>
+      <a href="/services" class="link-copper text-sm font-medium">Tous les services →</a>
+    </div>
+    <div class="mt-9 grid gap-5 sm:grid-cols-2">
+      {services.map((s) => (
+        <article class="card p-7 transition-shadow hover:shadow-[0_1px_0_#b5703a]">
+          <h3 class="font-display text-xl font-semibold text-ink">{s.titre}</h3>
+          <p class="mt-2 text-slate">{s.accroche}</p>
+          <ul class="mt-4 space-y-1.5 text-sm text-slate">
+            {s.points.map((p) => (
+              <li class="flex gap-2"><span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-copper"></span>{p}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- ============ MÉTHODE (signature : pipeline frigorifique) ============ -->
+  <section class="bg-paper">
+    <div class="mx-auto max-w-6xl px-5 py-20">
+      <div class="copper-rule mb-5"></div>
+      <h2 class="max-w-xl text-3xl font-semibold text-ink">De l'étude à l'entretien</h2>
+      <p class="mt-3 max-w-2xl text-slate">Une méthode continue, du premier bilan thermique jusqu'au suivi de l'installation dans la durée.</p>
+      <ol class="mt-12 grid gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+        {methode.map((m, i) => (
+          <li class="relative pr-6">
+            <!-- liaison cuivre entre étapes -->
+            {i < methode.length - 1 && (
+              <span class="absolute right-2 top-3 hidden h-px w-6 bg-copper/50 lg:block" aria-hidden="true"></span>
+            )}
+            <span class="font-display text-sm font-semibold text-copper">{m.n}</span>
+            <h3 class="mt-2 font-display text-lg font-semibold text-ink">{m.titre}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate">{m.texte}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ RÉALISATIONS (preuve) ============ -->
+  <section class="mx-auto max-w-6xl px-5 py-20">
+    <div class="copper-rule mb-5"></div>
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <h2 class="text-3xl font-semibold text-ink">Réalisations</h2>
+        <p class="mt-3 max-w-2xl text-slate">La preuve par les chantiers : contexte, solution mise en œuvre, résultat.</p>
+      </div>
+      <a href="/realisations" class="link-copper text-sm font-medium">Toutes les réalisations →</a>
+    </div>
+    <div class="mt-9 grid gap-5 md:grid-cols-3">
+      {realisations.map((r) => (
+        <article class="card overflow-hidden">
+          {r.image
+            ? <img src={r.image} alt={r.titre} width="640" height="480" class="aspect-[4/3] w-full border-b border-mist object-cover" loading="lazy" />
+            : <div class="flex aspect-[4/3] items-center justify-center border-b border-mist bg-fog text-xs font-medium uppercase tracking-wider text-slate/60">Photo chantier</div>}
+          <div class="p-6">
+            <span class="eyebrow text-[0.7rem]">{r.typologie}</span>
+            <h3 class="mt-2 font-display text-lg font-semibold text-ink">{r.titre}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate">{r.contexte}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <CTA />
+</Base>

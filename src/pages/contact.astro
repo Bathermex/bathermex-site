@@ -1,0 +1,105 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import { site, isPlaceholder } from "../data/site";
+const telOk = !isPlaceholder(site.contact.tel);
+const mailOk = !isPlaceholder(site.contact.email);
+---
+
+<Base title="Contact" description="Contactez Bathermex pour un projet d'installation, de maintenance ou un dépannage en climatisation tertiaire VRV / DRV.">
+  <PageHero
+    eyebrow="Parlons de votre projet"
+    title="Contact"
+    intro="Installation, contrat d'entretien ou dépannage : décrivez votre besoin, nous revenons vers vous rapidement."
+  />
+
+  <section class="mx-auto max-w-6xl px-5 py-16">
+    <div class="grid gap-12 md:grid-cols-[1.3fr_1fr]">
+      <!-- Formulaire (Netlify Forms) -->
+      <div>
+        <form
+          name="contact"
+          method="POST"
+          action="/merci"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="space-y-5"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden">
+            <label>Ne pas remplir : <input name="bot-field" /></label>
+          </p>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label for="nom" class="mb-1.5 block text-sm font-medium text-ink">Nom *</label>
+              <input id="nom" name="nom" type="text" required autocomplete="name"
+                class="w-full rounded-md border border-mist bg-paper px-3.5 py-2.5 text-ink outline-none focus:border-copper" />
+            </div>
+            <div>
+              <label for="societe" class="mb-1.5 block text-sm font-medium text-ink">Société</label>
+              <input id="societe" name="societe" type="text" autocomplete="organization"
+                class="w-full rounded-md border border-mist bg-paper px-3.5 py-2.5 text-ink outline-none focus:border-copper" />
+            </div>
+            <div>
+              <label for="email" class="mb-1.5 block text-sm font-medium text-ink">Email *</label>
+              <input id="email" name="email" type="email" required autocomplete="email"
+                class="w-full rounded-md border border-mist bg-paper px-3.5 py-2.5 text-ink outline-none focus:border-copper" />
+            </div>
+            <div>
+              <label for="tel" class="mb-1.5 block text-sm font-medium text-ink">Téléphone</label>
+              <input id="tel" name="telephone" type="tel" autocomplete="tel"
+                class="w-full rounded-md border border-mist bg-paper px-3.5 py-2.5 text-ink outline-none focus:border-copper" />
+            </div>
+          </div>
+
+          <div>
+            <label for="sujet" class="mb-1.5 block text-sm font-medium text-ink">Type de demande</label>
+            <select id="sujet" name="sujet"
+              class="w-full rounded-md border border-mist bg-paper px-3.5 py-2.5 text-ink outline-none focus:border-copper">
+              <option>Installation VRV / DRV</option>
+              <option>Contrat de maintenance</option>
+              <option>Dépannage / SAV</option>
+              <option>Appel d'offres / marché</option>
+              <option>Autre</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="mb-1.5 block text-sm font-medium text-ink">Votre message *</label>
+            <textarea id="message" name="message" rows="5" required
+              class="w-full rounded-md border border-mist bg-paper px-3.5 py-2.5 text-ink outline-none focus:border-copper"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Envoyer la demande</button>
+          <p class="text-xs text-slate">
+            Les informations transmises sont utilisées uniquement pour répondre à votre demande.
+            Voir les <a href="/mentions-legales" class="link-copper">mentions légales</a>.
+          </p>
+        </form>
+      </div>
+
+      <!-- Coordonnées -->
+      <aside class="space-y-5">
+        <div class="card p-6">
+          <h2 class="eyebrow mb-4">Coordonnées</h2>
+          <ul class="space-y-3 text-sm text-slate">
+            <li><span class="font-semibold text-ink">Adresse</span><br/>{site.contact.adresse}<br/>{site.contact.cpVille}</li>
+            <li>
+              <span class="font-semibold text-ink">Téléphone</span><br/>
+              {telOk ? <a href={`tel:${site.contact.tel.replace(/\s/g, "")}`} class="link-copper">{site.contact.tel}</a> : <span class="text-copper">{site.contact.tel}</span>}
+            </li>
+            <li>
+              <span class="font-semibold text-ink">Email</span><br/>
+              {mailOk ? <a href={`mailto:${site.contact.email}`} class="link-copper">{site.contact.email}</a> : <span class="text-copper">{site.contact.email}</span>}
+            </li>
+          </ul>
+        </div>
+        <div class="card p-6">
+          <h2 class="eyebrow mb-3">Zones d'intervention</h2>
+          <p class="text-sm leading-relaxed text-slate">PACA (depuis Allauch) et Île-de-France (Paris et région parisienne), pour les bâtiments tertiaires.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Base>

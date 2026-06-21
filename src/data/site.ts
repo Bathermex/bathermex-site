@@ -1,0 +1,44 @@
+// ============================================================
+// CONFIGURATION CENTRALE DU SITE
+// Tout ce qui est entre 〔 〕 est un PLACEHOLDER : à remplacer par
+// Brice avant mise en ligne (liste complète : CONTENU_A_COMPLETER.md).
+// Les liens tél/email ne deviennent cliquables que si la valeur est
+// renseignée (pas de lien cassé tant qu'un placeholder est présent).
+// ============================================================
+
+export const site = {
+  name: "Bathermex",
+  baseline: "Climatisation tertiaire VRV / DRV",
+  // Phrase d'accroche
+  tagline: "Installation, maintenance et SAV de systèmes VRV / DRV pour le tertiaire, en PACA et en Île-de-France.",
+  description:
+    "Bathermex, spécialiste de la climatisation tertiaire en VRV / DRV (détente directe). Installation, maintenance préventive et dépannage pour bureaux, commerces et ERP, sur deux implantations : Allauch (13) et Paris / Île-de-France.",
+
+  zones: ["PACA", "Île-de-France"],
+
+  bases: [
+    { ville: "Allauch", cp: "13190", region: "Bouches-du-Rhône" },
+    { ville: "Paris / Île-de-France", cp: "", region: "" },
+  ],
+
+  contact: {
+    tel: "〔À COMPLÉTER : téléphone〕",
+    email: "〔À COMPLÉTER : email de réception du formulaire〕",
+    adresse: "〔À COMPLÉTER : adresse〕",
+    cpVille: "13190 Allauch",
+  },
+
+  // Réseaux (laisser vide si non utilisé → n'affiche rien)
+  linkedin: "", // ex. "https://www.linkedin.com/company/bathermex"
+};
+
+export const nav = [
+  { label: "Accueil", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Réalisations", href: "/realisations" },
+  { label: "À propos", href: "/a-propos" },
+  { label: "Contact", href: "/contact" },
+];
+
+// Aide : un champ est-il encore un placeholder ?
+export const isPlaceholder = (v: string): boolean => !v || v.includes("〔");

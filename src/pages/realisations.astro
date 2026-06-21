@@ -1,0 +1,57 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import CTA from "../components/CTA.astro";
+import { realisations, realisationExempleRedige } from "../data/content";
+const ex = realisationExempleRedige;
+---
+
+<Base title="Réalisations" description="Chantiers de climatisation tertiaire VRV / DRV réalisés par Bathermex : contexte, solution et résultat.">
+  <PageHero
+    eyebrow="La preuve par les chantiers"
+    title="Réalisations"
+    intro="Nos chantiers, présentés simplement : le contexte de départ, la solution mise en œuvre, le résultat pour l'exploitant."
+  />
+
+  <section class="mx-auto max-w-6xl px-5 py-16">
+    <div class="grid gap-6 md:grid-cols-2">
+      {realisations.map((r) => (
+        <article class="card overflow-hidden">
+          {r.image
+            ? <img src={r.image} alt={r.titre} width="960" height="540" class="aspect-[16/9] w-full border-b border-mist object-cover" loading="lazy" />
+            : <div class="flex aspect-[16/9] items-center justify-center border-b border-mist bg-fog text-xs font-medium uppercase tracking-wider text-slate/60">Photo chantier</div>}
+          <div class="p-7">
+            <span class="eyebrow text-[0.7rem]">{r.typologie}{r.lieu ? ` · ${r.lieu}` : ""}</span>
+            <h2 class="mt-2 font-display text-xl font-semibold text-ink">{r.titre}</h2>
+            <dl class="mt-4 space-y-3 text-sm leading-relaxed">
+              <div><dt class="font-semibold text-petrol">Contexte</dt><dd class="text-slate">{r.contexte}</dd></div>
+              <div><dt class="font-semibold text-petrol">Solution</dt><dd class="text-slate">{r.solution}</dd></div>
+              <div><dt class="font-semibold text-petrol">Résultat</dt><dd class="text-slate">{r.resultat}</dd></div>
+            </dl>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Exemple de mise en forme (à retirer une fois les vrais chantiers en ligne) -->
+    <div class="mt-12">
+      <p class="eyebrow mb-4">Exemple de mise en forme</p>
+      <article class="card grid gap-6 overflow-hidden md:grid-cols-2">
+        {ex.image
+          ? <img src={ex.image} alt={ex.titre} width="640" height="480" class="min-h-48 w-full object-cover" loading="lazy" />
+          : <div class="flex min-h-48 items-center justify-center bg-fog text-xs font-medium uppercase tracking-wider text-slate/60">Photo chantier</div>}
+        <div class="p-7">
+          <span class="eyebrow text-[0.7rem]">{ex.typologie} · {ex.lieu}</span>
+          <h2 class="mt-2 font-display text-xl font-semibold text-ink">{ex.titre}</h2>
+          <dl class="mt-4 space-y-3 text-sm leading-relaxed">
+            <div><dt class="font-semibold text-petrol">Contexte</dt><dd class="text-slate">{ex.contexte}</dd></div>
+            <div><dt class="font-semibold text-petrol">Solution</dt><dd class="text-slate">{ex.solution}</dd></div>
+            <div><dt class="font-semibold text-petrol">Résultat</dt><dd class="text-slate">{ex.resultat}</dd></div>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <CTA />
+</Base>

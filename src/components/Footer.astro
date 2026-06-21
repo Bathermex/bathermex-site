@@ -1,0 +1,59 @@
+---
+import { site, nav, isPlaceholder } from "../data/site";
+const year = new Date().getFullYear();
+const telOk = !isPlaceholder(site.contact.tel);
+const mailOk = !isPlaceholder(site.contact.email);
+---
+
+<footer class="bg-ink text-fog/80">
+  <div class="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-3">
+    <!-- Marque -->
+    <div>
+      <div class="flex items-center gap-2.5">
+        <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="1" y="1" width="30" height="30" rx="7" fill="#16262c"></rect>
+          <path d="M7 12h13a4 4 0 1 1-3 6.6" fill="none" stroke="#b5703a" stroke-width="2.2" stroke-linecap="round"></path>
+          <path d="M7 18h9a3 3 0 1 0-2.2-5" fill="none" stroke="#5b7e84" stroke-width="2.2" stroke-linecap="round"></path>
+        </svg>
+        <span class="font-display text-lg font-semibold text-white">Bathermex</span>
+      </div>
+      <p class="mt-4 max-w-xs text-sm leading-relaxed">{site.baseline} — pour le tertiaire, en PACA et en Île-de-France.</p>
+    </div>
+
+    <!-- Navigation -->
+    <div>
+      <h2 class="eyebrow mb-4">Navigation</h2>
+      <ul class="space-y-2 text-sm">
+        {nav.map((item) => (
+          <li><a href={item.href} class="transition-colors hover:text-white">{item.label}</a></li>
+        ))}
+        <li><a href="/mentions-legales" class="transition-colors hover:text-white">Mentions légales</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <h2 class="eyebrow mb-4">Contact</h2>
+      <ul class="space-y-2 text-sm">
+        <li>{site.contact.adresse}</li>
+        <li>{site.contact.cpVille}</li>
+        <li>
+          {telOk ? <a href={`tel:${site.contact.tel.replace(/\s/g, "")}`} class="transition-colors hover:text-white">{site.contact.tel}</a> : <span class="text-copper">{site.contact.tel}</span>}
+        </li>
+        <li>
+          {mailOk ? <a href={`mailto:${site.contact.email}`} class="transition-colors hover:text-white">{site.contact.email}</a> : <span class="text-copper">{site.contact.email}</span>}
+        </li>
+        {site.linkedin && (
+          <li><a href={site.linkedin} class="transition-colors hover:text-white" rel="noopener">LinkedIn</a></li>
+        )}
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-5 text-xs text-fog/55 sm:flex-row sm:items-center sm:justify-between">
+      <p>© {year} Bathermex. Tous droits réservés.</p>
+      <p>Climatisation tertiaire VRV / DRV · Allauch (13) · Paris / Île-de-France</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,41 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import CTA from "../components/CTA.astro";
+import { services } from "../data/content";
+---
+
+<Base title="Services" description="Installation VRV / DRV, maintenance préventive, SAV et réponse aux appels d'offres pour le tertiaire en PACA et en Île-de-France.">
+  <PageHero
+    eyebrow="Nos prestations"
+    title="Installation, maintenance et SAV en VRV / DRV"
+    intro="Bathermex accompagne les bâtiments tertiaires sur tout le cycle de vie de leur climatisation à détente directe : étude, pose, mise en service et entretien."
+  />
+
+  <section class="mx-auto max-w-6xl px-5 py-16">
+    <div class="space-y-5">
+      {services.map((s, i) => (
+        <article id={s.slug} class="card grid gap-6 p-8 md:grid-cols-[auto_1fr] md:gap-10">
+          <div class="font-display text-3xl font-semibold text-copper md:pt-1">{String(i + 1).padStart(2, "0")}</div>
+          <div>
+            <h2 class="font-display text-2xl font-semibold text-ink">{s.titre}</h2>
+            <p class="mt-2 text-lg text-slate">{s.accroche}</p>
+            <p class="mt-4 max-w-3xl leading-relaxed text-slate">{s.detail}</p>
+            <ul class="mt-5 flex flex-wrap gap-2">
+              {s.points.map((p) => (
+                <li class="rounded-full border border-mist bg-fog px-3 py-1 text-sm text-slate">{p}</li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <p class="mt-10 rounded-lg border border-mist bg-paper p-5 text-sm leading-relaxed text-slate">
+      Tous nos ouvrages engagent la garantie décennale (art. 1792 du Code civil). Les mises en service et
+      manipulations de fluides frigorigènes sont réalisées par du personnel attesté.
+    </p>
+  </section>
+
+  <CTA title="Besoin d'un chiffrage ?" text="Décrivez-nous votre site et votre besoin : nous revenons vers vous avec une étude adaptée." />
+</Base>

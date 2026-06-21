@@ -1,0 +1,66 @@
+---
+import { site, nav } from "../data/site";
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWith(href));
+---
+
+<header class="sticky top-0 z-50 border-b border-mist bg-fog/90 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
+    <!-- Wordmark -->
+    <a href="/" class="flex items-center gap-2.5" aria-label="Bathermex — accueil">
+      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true" class="shrink-0">
+        <rect x="1" y="1" width="30" height="30" rx="7" fill="#0e1a1f"></rect>
+        <path d="M7 12h13a4 4 0 1 1-3 6.6" fill="none" stroke="#b5703a" stroke-width="2.2" stroke-linecap="round"></path>
+        <path d="M7 18h9a3 3 0 1 0-2.2-5" fill="none" stroke="#5b7e84" stroke-width="2.2" stroke-linecap="round"></path>
+      </svg>
+      <span class="font-display text-lg font-semibold tracking-tight text-ink">
+        Bathermex
+      </span>
+    </a>
+
+    <!-- Nav desktop -->
+    <nav class="hidden items-center gap-7 md:flex" aria-label="Navigation principale">
+      {nav.map((item) => (
+        <a
+          href={item.href}
+          aria-current={isActive(item.href) ? "page" : undefined}
+          class={`text-sm font-medium transition-colors hover:text-petrol ${isActive(item.href) ? "text-petrol" : "text-slate"}`}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a href="/contact" class="btn btn-primary !px-4 !py-2 text-sm">Demander un devis</a>
+    </nav>
+
+    <!-- Bouton menu mobile -->
+    <button
+      id="menu-toggle"
+      class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border border-mist text-ink"
+      aria-label="Ouvrir le menu" aria-controls="mobile-menu" aria-expanded="false"
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Menu mobile -->
+  <nav id="mobile-menu" class="hidden border-t border-mist bg-fog px-5 pb-4 md:hidden" aria-label="Navigation mobile">
+    {nav.map((item) => (
+      <a href={item.href} class={`block border-b border-mist/70 py-3 text-base font-medium ${isActive(item.href) ? "text-petrol" : "text-ink"}`}>
+        {item.label}
+      </a>
+    ))}
+    <a href="/contact" class="btn btn-primary mt-4 w-full justify-center">Demander un devis</a>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  btn?.addEventListener("click", () => {
+    const open = menu?.classList.toggle("hidden") === false;
+    btn.setAttribute("aria-expanded", String(open));
+    btn.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+  });
+</script>
