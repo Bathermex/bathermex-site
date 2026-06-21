@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bathermex.fr/sitemap-index.xml
+Sitemap: https://bathermex.com/sitemap-index.xml

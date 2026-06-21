@@ -13,7 +13,7 @@ interface Props {
 const { title, description } = Astro.props;
 const pageTitle = title ? `${title} · ${site.name}` : `${site.name} — ${site.baseline}`;
 const pageDesc = description ?? site.description;
-const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://bathermex.fr").href;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://bathermex.com").href;
 ---
 
 <!doctype html>

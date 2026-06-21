@@ -1,88 +1,119 @@
-# Mettre le site en ligne — guide pas à pas (sans coder)
+# Mettre ton site en ligne — version pas à pas (zéro informatique)
 
-Ce projet est un site **Astro** statique, prêt à être déployé. Tu n'as **aucune commande à taper** :
-c'est Netlify qui construit le site pour toi, dans le cloud. Tu fais des **clics**, pas du code.
-
-> Avant la mise en ligne réelle : accord du gérant + vérification des mentions légales et des
-> contenus (cf. `CONTENU_A_COMPLETER.md`). Tant que des placeholders 〔…〕 sont visibles, le site
-> est « en préparation ».
+Tu n'as **aucune ligne à taper**. Tu fais des **clics**. Prends ton temps, suis l'ordre.
 
 ---
 
-## Étape 1 — Déposer le code sur GitHub (≈ 5 min)
+## D'abord, le principe en 30 secondes
 
-1. Va sur **github.com**, connecte-toi.
-2. En haut à droite, bouton **+** → **New repository**.
-3. **Repository name** : `bathermex-site`. Coche **Private**. Clique **Create repository**.
-4. Sur la page du dépôt vide, clique le lien **« uploading an existing file »**
-   (ou bouton **Add file → Upload files**).
-5. **Décompresse** le fichier `bathermex-site.zip` sur ton ordinateur, puis **glisse-dépose tout
-   le contenu du dossier** (pas le dossier lui-même : son contenu) dans la zone d'upload.
-   - ⚠️ Le dossier `node_modules` n'est volontairement **pas** dans le zip : c'est normal, Netlify
-     l'installe tout seul.
-6. En bas, clique **Commit changes**.
+Deux outils gratuits travaillent ensemble :
 
-> Si le glisser-déposer d'un dossier ne marche pas dans ton navigateur : installe **GitHub Desktop**
-> (gratuit), il copie les fichiers proprement. Ou demande-moi une variante.
+- **GitHub** = un grand classeur en ligne où sont rangés les fichiers de ton site.
+  👉 Tu viens d'y déposer les fichiers : cette partie est presque finie.
+- **Netlify** = l'atelier qui va chercher les fichiers dans le classeur GitHub, fabrique le
+  site, et l'affiche sur internet pour que tout le monde puisse le voir.
+  👉 C'est lui qui « héberge » ton site (= le garde en ligne).
 
----
+**Trois mots à connaître :**
+- **Mettre en ligne / déployer** = rendre ton site visible sur internet.
+- **Commit** (un bouton sur GitHub) = « Enregistrer ». Ça valide tes changements.
+- **Nom de domaine** = l'adresse de ton site, par exemple `bathermex.com`.
 
-## Étape 2 — Connecter Netlify (≈ 3 min)
-
-1. Va sur **app.netlify.com**, crée un compte (le plus simple : **« Sign up with GitHub »**).
-2. Bouton **Add new site** → **Import an existing project**.
-3. Choisis **GitHub** → autorise Netlify → sélectionne le dépôt **bathermex-site**.
-4. Netlify lit automatiquement le fichier `netlify.toml` :
-   - Build command : `npm run build`
-   - Publish directory : `dist`
-   Tu n'as **rien à changer**. Clique **Deploy**.
-5. Au bout d'1–2 min, ton site est en ligne sur une adresse type
-   `https://nom-aleatoire.netlify.app`. ✅
+> ℹ️ Netlify et GitHub sont en anglais. Je te donne le **mot exact du bouton** à chaque fois.
+> Si un bouton a un nom légèrement différent (l'interface change parfois), cherche un mot
+> proche au même endroit — ou envoie-moi une capture, je te dis où cliquer.
 
 ---
 
-## Étape 3 — Recevoir les messages du formulaire (≈ 2 min)
+## Étape 1 — GitHub : valider les fichiers (tu y es presque)
 
-Le formulaire de contact utilise **Netlify Forms** (inclus, gratuit jusqu'à 100 envois/mois).
+Tu as déjà glissé les fichiers. Il reste **un clic** :
 
-1. Dans Netlify : onglet **Forms** (il apparaît après le 1er déploiement).
-2. Le formulaire **`contact`** y figure. Clique dessus → **Settings / Notifications**.
-3. Ajoute une **notification par email** vers ton adresse de réception.
+1. En bas de la page où tu as déposé les fichiers, clique le bouton vert **Commit changes**
+   (= « Enregistrer les modifications »).
 
-> Teste : remplis le formulaire sur le site en ligne, tu dois voir l'envoi apparaître dans Netlify.
-
----
-
-## Étape 4 — Nom de domaine (optionnel, quand tu es prêt)
-
-1. Netlify → **Domain settings** → **Add a domain** → saisis ton domaine (ex. `bathermex.fr`).
-2. Suis les instructions DNS de Netlify (à reporter chez ton registrar : OVH, Gandi…).
-3. Une fois le domaine actif, modifie `https://bathermex.fr` dans **2 fichiers** :
-   `astro.config.mjs` et `public/robots.txt` (édition directe sur GitHub, voir ci-dessous).
+C'est tout pour GitHub. Tes fichiers sont rangés. ✅
 
 ---
 
-## Modifier le contenu plus tard (sans coder)
+## Étape 2 — Netlify : mettre le site en ligne (l'étape qui compte)
 
-Le contenu vit dans des fichiers texte. Deux façons de l'éditer :
+1. Va sur **app.netlify.com**.
+2. Crée un compte. Le plus simple : clique **Sign up with GitHub** (= « S'inscrire avec GitHub »).
+   Ça relie directement ton classeur GitHub à l'atelier Netlify.
+3. Une fois connecté, clique le bouton **Add new site** (ou **Add new project** selon la version)
+   = « Ajouter un site ». Puis choisis **Import an existing project** (= « Importer un projet existant »).
+4. Choisis **GitHub** → autorise Netlify si on te le demande → dans la liste, clique ton site
+   **bathermex-site**.
+5. Netlify lit tout seul les réglages (il sait déjà comment fabriquer le site).
+   **Tu ne touches à rien.** Clique le bouton **Deploy** (ou **Deploy site** = « Publier »).
+6. Patiente 1 à 2 minutes. Netlify affiche alors une adresse du type
+   `https://un-nom-au-hasard.netlify.app`. **Clique dessus : ton site est en ligne.** 🎉
 
-**A. Direct sur GitHub (disponible tout de suite, zéro installation)**
-- Sur github.com → ton dépôt → ouvre le fichier (ex. `src/data/site.ts` pour tes coordonnées,
-  `src/data/content.ts` pour services / réalisations / FAQ) → icône **crayon** → modifie →
-  **Commit changes**. Netlify reconstruit et publie automatiquement en ~1 min.
-
-**B. Éditeur visuel Keystatic (étape suivante — je te le prépare quand tu veux)**
-- Keystatic ajoute une interface d'édition à `tonsite/keystatic` (titres, textes, photos en
-  point-and-click). C'est l'étape S3 de ton plan. Recommandation pour l'authentification sans
-  prise de tête : **Keystatic Cloud** (gratuit jusqu'à 3 éditeurs), qui évite la config GitHub OAuth
-  manuelle. À activer une fois le site en ligne et le contenu réel intégré.
+> Au début, l'adresse est « moche » (un nom au hasard). C'est normal. On mettra une vraie
+> adresse (`bathermex.com`) plus tard, quand tu seras prêt.
 
 ---
 
-## Tester en local (pour un développeur / prestataire, facultatif)
+## Étape 3 — Recevoir par email les messages du formulaire
+
+Quand un visiteur remplit le formulaire de la page **Contact** et clique « Envoyer », son
+message est rangé dans Netlify. Pour qu'il t'arrive **aussi par email** (plus pratique), tu
+règles ça **une seule fois** :
+
+1. Dans Netlify, clique sur ton site.
+2. En haut, va dans **Project configuration** (= « Configuration du projet »).
+3. Dans le menu de gauche, clique **Notifications**.
+4. Trouve la section **Form submission notifications** (= « Notifications d'envoi de formulaire »),
+   puis clique **Add notification** (= « Ajouter une notification ») → **Email notification**.
+5. Dans le champ qui s'affiche, mets **l'adresse email** où tu veux recevoir les messages.
+   Clique **Save** (= « Enregistrer »).
+
+À partir de là, chaque message envoyé depuis le site t'arrive par email, et tu peux **répondre
+directement au client**.
+
+> ⚠️ Deux choses à savoir :
+> - L'onglet **Forms** / les notifications n'apparaissent **qu'après** que le site est en ligne.
+>   Si tu ne vois rien tout de suite, c'est normal.
+> - Le tout premier email peut tomber dans tes **spams** : pense à vérifier.
+> - **Teste-le** : va sur ton site en ligne → page Contact → remplis et envoie. Le message doit
+>   apparaître dans Netlify et l'email arriver.
+
+---
+
+## ⏸️ Le reste : PLUS TARD (n'y touche pas maintenant)
+
+### Mettre une vraie adresse (`bathermex.com`) — optionnel
+
+1. Il faut d'abord **acheter le nom de domaine** chez une société qui les vend (les plus connues
+   en France : **OVH**, **Gandi**, **Ionos**). Compte ~10 à 15 € par an.
+2. Ensuite, dans Netlify : ton site → **Project configuration** → **Domain management**
+   (= « Gestion du domaine ») → **Add a domain** (= « Ajouter un domaine ») → tape ton adresse.
+3. Netlify te donne des réglages techniques à recopier chez OVH/Gandi. **C'est l'étape la plus
+   pénible.** Quand tu en seras là : **dis-le-moi, je te guide écran par écran**, ou ton
+   prestataire le fait en 5 minutes.
+
+👉 **Pour l'instant, ignore cette partie.** Ton site marche très bien avec l'adresse Netlify.
+
+### Changer un texte, un numéro, ajouter une réalisation — bientôt en plus simple
+
+Aujourd'hui, ça se modifie en ouvrant un fichier sur GitHub (faisable, mais un peu technique).
+**Je préfère t'installer un outil dédié** appelé **Keystatic** : une page privée sur ton site où
+tu modifies les textes et les photos **comme dans Word**, sans jamais toucher aux fichiers.
+
+👉 Dès que ton site est en ligne, dis-moi **« installe l'éditeur »** et je m'en occupe. En
+attendant, quand tu auras tes vraies infos (réalisations, coordonnées…), **envoie-les-moi : je
+les intègre pour toi.**
+
+---
+
+## 🔧 Tout en bas : partie réservée à un informaticien — IGNORE
+
+> Ce bloc ne te concerne pas. Il sert uniquement à un développeur qui voudrait voir le site sur
+> son propre ordinateur. Tu n'en as **pas besoin** : tu vois ton site directement en ligne.
 
 ```bash
 npm install
-npm run dev      # aperçu sur http://localhost:4321
-npm run build    # génère le dossier dist/ (ce que Netlify fait)
+npm run dev
+npm run build
 ```

@@ -4,6 +4,11 @@ Tout ce qui est entre 〔 〕 dans le site est un **placeholder**. Le site les a
 (et n'active pas les liens tél/email tant qu'ils ne sont pas remplis) : rien de faux ne part en ligne
 par accident. Voici la liste, par ordre de priorité.
 
+> **État au 21/06/2026 (SITE V1.1)** — Fait depuis la V1.0 : logo intégré (en-tête + favicon),
+> couleurs du site alignées sur le logo (bleu marine + orange flamme), email + adresse + raison
+> sociale (SAS Bathermex) renseignés, URL passée de `.fr` à `.com`. **Reste prioritairement** :
+> le **téléphone**, les **mentions légales**, et surtout les **3 réalisations** (photos + accord client).
+
 ---
 
 ## 🟥 Priorité 1 — Les RÉALISATIONS (le bloc le plus important)
@@ -29,9 +34,10 @@ attendus** : retire-le une fois tes vrais chantiers en ligne.
 ---
 
 ## 🟧 Priorité 2 — Coordonnées (`src/data/site.ts`)
-- `tel` — téléphone
-- `email` — adresse de réception du formulaire
-- `adresse` — adresse postale (la ville `13190 Allauch` est déjà en place)
+- ❌ `tel` — **téléphone : MANQUANT, à fournir** (reste affiché « À COMPLÉTER » tant qu'absent)
+- ✅ `email` — `bathermex@bathermex.com` (affiché). *Le formulaire, lui, arrive sur `brice.lacreusette@bathermex.com` via Netlify.*
+- ✅ `adresse` — `Avenue des Monts Blancs`, `13190 Allauch`
+- ✅ `raisonSociale` — `SAS Bathermex`
 - `linkedin` (optionnel) — URL de la page LinkedIn (laisser vide masque le lien)
 
 ## 🟧 Priorité 3 — Mentions légales (`src/pages/mentions-legales.astro`) — obligatoire avant mise en ligne
@@ -47,6 +53,12 @@ attendus** : retire-le une fois tes vrais chantiers en ligne.
 ## 🟨 Priorité 5 — Mentions à confirmer (`src/data/content.ts`, bloc `reassurance`)
 - F-Gas : **mention exacte de la catégorie d'attestation** fluides frigorigènes
 - Décennale : **nom de l'assureur** (et n° de police si tu veux l'afficher)
+
+## 🟦 Priorité 6 — Logo : version pour fond sombre
+Ton logo a le **texte en noir** : parfait sur fond clair (l'en-tête), **invisible sur fond sombre**
+(le bas de page bleu marine). À **demander au créateur du logo** une **version blanche / inversée**
+(mêmes dessins, texte en blanc), idéalement **en même temps que le fichier vectoriel `.ai` / `.svg`**.
+En attendant, le bas de page affiche « Bathermex » écrit en blanc (propre, pas de logo cassé).
 
 ---
 

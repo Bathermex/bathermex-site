@@ -2,21 +2,23 @@
 
 /* ============================================================
    IDENTITÉ BATHERMEX — tokens de design
-   Palette ancrée dans le métier : pétrole profond (froid maîtrisé)
-   + accent cuivre (le cuivre des liaisons frigorifiques).
+   Palette ALIGNÉE SUR LE LOGO : bleu marine + bleu flocon (le froid,
+   la clim) et orange flamme (le chaud, le chauffage). La dualité
+   chaud / froid du logo se retrouve dans tout le site.
+   Couleurs extraites du logo : bleu flocon #1e5aaa · orange flamme #ee8722.
    ============================================================ */
 @theme {
   /* Couleurs */
-  --color-ink: #0e1a1f;        /* pétrole quasi-noir : sections sombres, texte principal */
-  --color-petrol: #123a43;     /* teal profond : marque secondaire */
-  --color-petrol-700: #0f2e35;
-  --color-petrol-300: #5b7e84;
-  --color-copper: #b5703a;     /* accent cuivre */
-  --color-copper-bright: #c8854f;
-  --color-copper-50: #f6ece3;
-  --color-fog: #f3f6f5;        /* fond clair froid */
-  --color-mist: #e0e7e6;       /* filets / bordures */
-  --color-slate: #4d5e5b;      /* texte atténué sur fond clair (AA ok) */
+  --color-ink: #0d1b2e;        /* bleu marine profond : sections sombres, texte principal */
+  --color-petrol: #1c5398;     /* bleu de marque (flocon) : liens, bande CTA, hover */
+  --color-petrol-700: #14365f;
+  --color-petrol-300: #6c8fb8;
+  --color-copper: #bd5a17;     /* orange brûlé (flamme) : accent lisible sur fond clair */
+  --color-copper-bright: #ee8722; /* orange flamme vif : hover, décoratif */
+  --color-copper-50: #fbeee2;
+  --color-fog: #f2f6fb;        /* fond clair bleuté */
+  --color-mist: #dce6f1;       /* filets / bordures */
+  --color-slate: #46566a;      /* texte atténué sur fond clair (AA ok) */
   --color-paper: #ffffff;
 
   /* Typographie */

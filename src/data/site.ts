@@ -23,9 +23,16 @@ export const site = {
 
   contact: {
     tel: "〔À COMPLÉTER : téléphone〕",
-    email: "〔À COMPLÉTER : email de réception du formulaire〕",
-    adresse: "〔À COMPLÉTER : adresse〕",
+    email: "bathermex@bathermex.com",
+    adresse: "Avenue des Monts Blancs",
     cpVille: "13190 Allauch",
+  },
+
+  // Identité légale — le reste (SIRET, RCS, TVA, capital, assureur décennale)
+  // est à compléter dans la page mentions-legales.
+  legal: {
+    raisonSociale: "SAS Bathermex",
+    forme: "SAS",
   },
 
   // Réseaux (laisser vide si non utilisé → n'affiche rien)
