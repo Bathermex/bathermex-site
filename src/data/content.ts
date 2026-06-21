@@ -29,6 +29,7 @@ export const reassurance = [
 export const services = [
   {
     slug: "installation-vrv-drv",
+    image: "/photos/service-installation.webp", // photo en fin de bloc (vide = aucune)
     titre: "Installation VRV / DRV",
     accroche: "Conception et pose de systèmes à détente directe pour le tertiaire.",
     detail:
@@ -41,6 +42,7 @@ export const services = [
   },
   {
     slug: "maintenance",
+    image: "/photos/service-maintenance.webp", // photo en fin de bloc (vide = aucune)
     titre: "Maintenance préventive",
     accroche: "Contrats d'entretien pour préserver performance et durée de vie des installations.",
     detail:
@@ -53,6 +55,7 @@ export const services = [
   },
   {
     slug: "sav-depannage",
+    image: "/photos/service-sav.webp", // photo en fin de bloc (vide = aucune)
     titre: "SAV & dépannage",
     accroche: "Intervention sur panne pour limiter l'impact sur votre exploitation.",
     detail:
@@ -65,6 +68,7 @@ export const services = [
   },
   {
     slug: "appels-offres",
+    image: "", // photo en fin de bloc (vide = aucune)
     titre: "Marchés & appels d'offres",
     accroche: "Réponse aux consultations privées et marchés publics CVC.",
     detail:
@@ -174,3 +178,14 @@ export const faq = [
     r: "Oui, en sous-traitance déclarée. Nous répondons également aux marchés publics (MAPA) et aux consultations privées du secteur tertiaire.",
   },
 ];
+
+// --- Photos de fond des bandeaux "hero" --------------------------
+// Vide "" = pas de photo (le bandeau garde son style par défaut, propre).
+// Renseigner le chemin (ex. "/photos/hero-services.jpg") active la photo.
+export const heroImages = {
+  accueil: "/photos/hero-accueil.webp",
+  services: "/photos/hero-services.webp",
+  realisations: "",
+  aPropos: "/photos/hero-a-propos.webp",
+  contact: "",
+};

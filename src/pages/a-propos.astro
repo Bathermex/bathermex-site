@@ -2,11 +2,12 @@
 import Base from "../layouts/Base.astro";
 import PageHero from "../components/PageHero.astro";
 import CTA from "../components/CTA.astro";
-import { faq } from "../data/content";
+import { faq, heroImages } from "../data/content";
 ---
 
 <Base title="À propos" description="Bathermex, entreprise spécialisée en climatisation tertiaire VRV / DRV, implantée à Allauch (13) et en Île-de-France.">
   <PageHero
+    image={heroImages.aPropos}
     eyebrow="L'entreprise"
     title="Spécialistes de la climatisation tertiaire"
     intro="Bathermex conçoit, installe et entretient des systèmes VRV / DRV pour les bâtiments tertiaires, sur deux implantations complémentaires."

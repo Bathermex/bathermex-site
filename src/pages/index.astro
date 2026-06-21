@@ -1,13 +1,17 @@
 ---
 import Base from "../layouts/Base.astro";
 import CTA from "../components/CTA.astro";
-import { reassurance, services, methode, realisations } from "../data/content";
+import { reassurance, services, methode, realisations, heroImages } from "../data/content";
 import { site } from "../data/site";
 ---
 
 <Base>
   <!-- ============ HERO ============ -->
   <section class="relative overflow-hidden bg-ink text-fog">
+    {heroImages.accueil && (
+      <img src={heroImages.accueil} alt="" loading="eager" class="absolute inset-0 h-full w-full object-cover" />
+    )}
+    {heroImages.accueil && <div class="absolute inset-0 bg-ink/75"></div>}
     <div class="pointer-events-none absolute inset-0 opacity-[0.06]"
          style="background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:46px 46px;"></div>
     <div class="relative mx-auto max-w-6xl px-5 py-24 md:py-32">
@@ -51,7 +55,7 @@ import { site } from "../data/site";
     </div>
     <div class="mt-9 grid gap-5 sm:grid-cols-2">
       {services.map((s) => (
-        <article class="card p-7 transition-shadow hover:shadow-[0_1px_0_#b5703a]">
+        <article class="card p-7 transition-shadow hover:shadow-[0_1px_0_#bd5a17]">
           <h3 class="font-display text-xl font-semibold text-ink">{s.titre}</h3>
           <p class="mt-2 text-slate">{s.accroche}</p>
           <ul class="mt-4 space-y-1.5 text-sm text-slate">

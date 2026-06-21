@@ -2,12 +2,14 @@
 import Base from "../layouts/Base.astro";
 import PageHero from "../components/PageHero.astro";
 import { site, isPlaceholder } from "../data/site";
+import { heroImages } from "../data/content";
 const telOk = !isPlaceholder(site.contact.tel);
 const mailOk = !isPlaceholder(site.contact.email);
 ---
 
 <Base title="Contact" description="Contactez Bathermex pour un projet d'installation, de maintenance ou un dépannage en climatisation tertiaire VRV / DRV.">
   <PageHero
+    image={heroImages.contact}
     eyebrow="Parlons de votre projet"
     title="Contact"
     intro="Installation, contrat d'entretien ou dépannage : décrivez votre besoin, nous revenons vers vous rapidement."

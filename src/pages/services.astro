@@ -2,11 +2,12 @@
 import Base from "../layouts/Base.astro";
 import PageHero from "../components/PageHero.astro";
 import CTA from "../components/CTA.astro";
-import { services } from "../data/content";
+import { services, heroImages } from "../data/content";
 ---
 
 <Base title="Services" description="Installation VRV / DRV, maintenance préventive, SAV et réponse aux appels d'offres pour le tertiaire en PACA et en Île-de-France.">
   <PageHero
+    image={heroImages.services}
     eyebrow="Nos prestations"
     title="Installation, maintenance et SAV en VRV / DRV"
     intro="Bathermex accompagne les bâtiments tertiaires sur tout le cycle de vie de leur climatisation à détente directe : étude, pose, mise en service et entretien."
@@ -26,6 +27,9 @@ import { services } from "../data/content";
                 <li class="rounded-full border border-mist bg-fog px-3 py-1 text-sm text-slate">{p}</li>
               ))}
             </ul>
+            {s.image && (
+              <img src={s.image} alt="" loading="lazy" class="mt-6 aspect-[16/9] w-full rounded-lg object-cover" />
+            )}
           </div>
         </article>
       ))}

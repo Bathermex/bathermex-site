@@ -1,13 +1,28 @@
 ---
-interface Props { eyebrow?: string; title: string; intro?: string; }
-const { eyebrow, title, intro } = Astro.props;
+interface Props { eyebrow?: string; title: string; intro?: string; image?: string; }
+const { eyebrow, title, intro, image } = Astro.props;
 ---
 
-<section class="border-b border-mist bg-paper">
-  <div class="mx-auto max-w-6xl px-5 py-16 md:py-20">
-    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
-    <h1 class="mt-4 max-w-3xl text-4xl font-semibold text-ink md:text-5xl">{title}</h1>
-    {intro && <p class="mt-5 max-w-2xl text-lg leading-relaxed text-slate">{intro}</p>}
-    <div class="copper-rule mt-7"></div>
-  </div>
-</section>
+{image ? (
+  /* --- Variante AVEC photo de fond + voile sombre + texte blanc --- */
+  <section class="relative overflow-hidden border-b border-ink/10">
+    <img src={image} alt="" loading="eager" class="absolute inset-0 h-full w-full object-cover" />
+    <div class="absolute inset-0 bg-ink/70"></div>
+    <div class="relative mx-auto max-w-6xl px-5 py-20 md:py-28">
+      {eyebrow && <p class="eyebrow !text-copper-bright">{eyebrow}</p>}
+      <h1 class="mt-4 max-w-3xl text-4xl font-semibold text-white md:text-5xl">{title}</h1>
+      {intro && <p class="mt-5 max-w-2xl text-lg leading-relaxed text-fog/85">{intro}</p>}
+      <div class="copper-rule mt-7"></div>
+    </div>
+  </section>
+) : (
+  /* --- Variante par défaut (fond clair), inchangée --- */
+  <section class="border-b border-mist bg-paper">
+    <div class="mx-auto max-w-6xl px-5 py-16 md:py-20">
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h1 class="mt-4 max-w-3xl text-4xl font-semibold text-ink md:text-5xl">{title}</h1>
+      {intro && <p class="mt-5 max-w-2xl text-lg leading-relaxed text-slate">{intro}</p>}
+      <div class="copper-rule mt-7"></div>
+    </div>
+  </section>
+)}

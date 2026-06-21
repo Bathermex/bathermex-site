@@ -1,0 +1,16 @@
+Déposez ici les photos du site. Noms attendus (voir liste des emplacements) :
+
+FONDS DES HEROS (1 par page) :
+  hero-accueil.jpg
+  hero-services.jpg
+  hero-realisations.jpg
+  hero-a-propos.jpg
+  hero-contact.jpg
+
+PHOTOS DES RUBRIQUES SERVICES (en fin de texte) :
+  service-installation.jpg
+  service-maintenance.jpg
+  service-sav.jpg
+  service-appels-offres.jpg
+
+Format conseillé : paysage, ~1600-2000 px de large, JPG/WebP, < 400 Ko.
