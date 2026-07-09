@@ -21,7 +21,7 @@ export const reassurance = [
   },
   {
     titre: "Assurance décennale",
-    texte: "Nos ouvrages sont couverts par une garantie décennale (art. 1792 du Code civil). 〔À COMPLÉTER : assureur〕",
+    texte: "Nos ouvrages sont couverts par une garantie décennale (art. 1792 du Code civil). Assureur : ERGO, via APRIL.",
   },
 ];
 
