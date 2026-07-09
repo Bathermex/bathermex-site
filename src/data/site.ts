@@ -22,14 +22,14 @@ export const site = {
   ],
 
   contact: {
-    tel: "〔À COMPLÉTER : téléphone〕",
+    tel: "04 42 72 14 56",
     email: "bathermex@bathermex.com",
-    adresse: "Avenue des Monts Blancs",
+    adresse: "Chemin des Monts Blancs",
     cpVille: "13190 Allauch",
   },
 
   // Identité légale — le reste (SIRET, RCS, TVA, capital, assureur décennale)
-  // est à compléter dans la page mentions-legales.
+  // est renseigné dans la page mentions-legales.
   legal: {
     raisonSociale: "SAS Bathermex",
     forme: "SAS",
