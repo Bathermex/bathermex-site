@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import CTA from "../components/CTA.astro";
-import { reassurance, services, methode, apercuAccueil, heroImages } from "../data/content";
+import { services, methode, apercuAccueil, heroImages } from "../data/content";
 import { site } from "../data/site";
 ---
 
@@ -22,7 +22,7 @@ import { site } from "../data/site";
       <p class="mt-6 max-w-2xl text-lg leading-relaxed text-fog/80">{site.tagline}</p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a href="/realisations" class="btn btn-light">Voir nos réalisations</a>
-        <a href="/contact" class="btn btn-ghost !border-white/25 !text-white hover:!border-copper">Demander un devis</a>
+        <a href="/contact" class="btn btn-ghost !border-white/25 !text-white hover:!border-copper">Nous contacter</a>
       </div>
       <div class="mt-12 flex flex-wrap items-center gap-x-8 gap-y-2 text-sm text-fog/55">
         <span>Spécialiste VRV / DRV</span>
@@ -31,18 +31,6 @@ import { site } from "../data/site";
         <span class="hidden h-1 w-1 rounded-full bg-copper sm:block"></span>
         <span>Paris / Île-de-France</span>
       </div>
-    </div>
-  </section>
-
-  <!-- ============ RÉASSURANCE ============ -->
-  <section class="mx-auto max-w-6xl px-5 py-16">
-    <div class="grid gap-px overflow-hidden rounded-xl border border-mist bg-mist sm:grid-cols-2 lg:grid-cols-4">
-      {reassurance.map((r) => (
-        <div class="bg-paper p-6">
-          <h2 class="font-display text-base font-semibold text-ink">{r.titre}</h2>
-          <p class="mt-2 text-sm leading-relaxed text-slate">{r.texte}</p>
-        </div>
-      ))}
     </div>
   </section>
 
