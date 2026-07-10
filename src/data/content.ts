@@ -57,13 +57,13 @@ export const services = [
     slug: "sav-depannage",
     image: "/photos/service-sav.webp", // photo en fin de bloc (vide = aucune)
     titre: "SAV & dépannage",
-    accroche: "Intervention sur panne pour limiter l'impact sur votre exploitation.",
+    accroche: "Dépannage et interventions curatives, en contrat ou à la demande.",
     detail:
       "Diagnostic, réparation et remise en service de vos équipements de climatisation. Suivi des interventions et conseil sur le renouvellement lorsque la réparation n'est plus pertinente.",
     points: [
-      "Diagnostic et réparation",
-      "Remise en service",
-      "Conseil renouvellement / remplacement",
+      "Diagnostic et réparation rapides",
+      "Interventions curatives planifiées ou d'urgence",
+      "Priorité d'intervention pour les clients sous contrat",
     ],
   },
   {
@@ -85,23 +85,23 @@ export const services = [
 export const methode = [
   {
     n: "01",
-    titre: "Étude & dimensionnement",
-    texte: "Bilan des besoins, sélection des équipements et chiffrage détaillé par lot.",
+    titre: "État des lieux du parc",
+    texte: "Visite technique de vos installations (clim, CVC, plomberie) et bilan de leur état, même si nous ne les avons pas posées.",
   },
   {
     n: "02",
-    titre: "Installation",
-    texte: "Pose des groupes, unités et réseaux frigorifiques cuivre, raccordements et coordination chantier.",
+    titre: "Contrat sur mesure",
+    texte: "Formule de maintenance adaptée au parc et à l'usage : fréquence des visites, périmètre, conditions d'intervention.",
   },
   {
     n: "03",
-    titre: "Mise en service F-Gas",
-    texte: "Mise en route, contrôles, charge des fluides et constitution des documents réglementaires.",
+    titre: "Entretien planifié",
+    texte: "Visites préventives, contrôles d'étanchéité réglementaires, registre des fluides et travaux préventifs.",
   },
   {
     n: "04",
-    titre: "Maintenance",
-    texte: "Suivi dans la durée : préventif, contrôle d'étanchéité et réactivité en cas de panne.",
+    titre: "Dépannage & travaux",
+    texte: "Interventions curatives, remise en service, et travaux d'amélioration ou de remplacement quand c'est plus pertinent que réparer.",
   },
 ];
 
