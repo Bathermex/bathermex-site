@@ -34,3 +34,18 @@ export const site = {
     raisonSociale: "SAS Bathermex",
     forme: "SAS",
   },
+
+  // Réseaux (laisser vide si non utilisé → n'affiche rien)
+  linkedin: "", // ex. "https://www.linkedin.com/company/bathermex"
+};
+
+export const nav = [
+  { label: "Accueil", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Réalisations", href: "/realisations" },
+  { label: "À propos", href: "/a-propos" },
+  { label: "Contact", href: "/contact" },
+];
+
+// Aide : un champ est-il encore un placeholder ?
+export const isPlaceholder = (v: string): boolean => !v || v.includes("〔");
