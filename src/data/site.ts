@@ -10,9 +10,9 @@ export const site = {
   name: "Bathermex",
   baseline: "Climatisation tertiaire VRV / DRV",
   // Phrase d'accroche
-  tagline: "Installation, maintenance et SAV de systèmes VRV / DRV pour le tertiaire, en PACA et en Île-de-France.",
+  tagline: "Contrats de maintenance annuels, travaux préventifs et interventions curatives sur vos installations de climatisation tertiaire VRV / DRV, en PACA et en Île-de-France.",
   description:
-    "Bathermex, spécialiste de la climatisation tertiaire en VRV / DRV (détente directe). Installation, maintenance préventive et dépannage pour bureaux, commerces et ERP, sur deux implantations : Allauch (13) et Paris / Île-de-France.",
+    "Bathermex, maintenance de climatisation tertiaire VRV / DRV : contrats annuels, maintenance préventive et curative, dépannage. Bureaux, commerces et ERP, sur deux implantations : Allauch (13) et Paris / Île-de-France.",
 
   zones: ["PACA", "Île-de-France"],
 
