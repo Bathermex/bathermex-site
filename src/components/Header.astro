@@ -9,7 +9,7 @@ const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWit
     <!-- Logo Bathermex -->
     <a href="/" class="flex items-center gap-2.5" aria-label="Bathermex — accueil">
       <img src="/logo-icon.png" alt="" width="30" height="34" class="h-9 w-auto shrink-0" />
-      <span class="font-display text-lg font-semibold tracking-tight text-ink">
+      <span class="font-display text-2xl font-semibold tracking-tight text-ink">
         Bathermex
       </span>
     </a>
@@ -25,7 +25,7 @@ const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWit
           {item.label}
         </a>
       ))}
-      <a href="/contact" class="btn btn-primary !px-4 !py-2 text-sm">Demander un devis</a>
+      <a href="/contact" class="btn btn-primary !px-4 !py-2 text-sm">Nous contacter</a>
     </nav>
 
     <!-- Bouton menu mobile -->
@@ -47,7 +47,7 @@ const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWit
         {item.label}
       </a>
     ))}
-    <a href="/contact" class="btn btn-primary mt-4 w-full justify-center">Demander un devis</a>
+    <a href="/contact" class="btn btn-primary mt-4 w-full justify-center">Nous contacter</a>
   </nav>
 </header>
 
