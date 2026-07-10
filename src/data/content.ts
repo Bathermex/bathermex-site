@@ -28,42 +28,42 @@ export const reassurance = [
 // --- Services ------------------------------------------------
 export const services = [
   {
-    slug: "installation-vrv-drv",
-    image: "/photos/service-installation.webp", // photo en fin de bloc (vide = aucune)
-    titre: "Installation VRV / DRV",
-    accroche: "Conception et pose de systèmes à détente directe pour le tertiaire.",
-    detail:
-      "Étude de dimensionnement, fourniture et installation de groupes extérieurs et unités intérieures, réseaux frigorifiques cuivre, raccordements électriques et mise en service. Pour bureaux, commerces, ERP et bâtiments tertiaires neufs ou en rénovation.",
-    points: [
-      "Bureaux, plateaux et open-spaces",
-      "Commerces et locaux recevant du public",
-      "Neuf et rénovation énergétique",
-    ],
-  },
-  {
     slug: "maintenance",
     image: "/photos/service-maintenance.webp", // photo en fin de bloc (vide = aucune)
-    titre: "Maintenance préventive",
-    accroche: "Contrats d'entretien pour préserver performance et durée de vie des installations.",
+    titre: "Contrats de maintenance annuels",
+    accroche: "Notre cœur d'activité : votre parc suivi toute l'année, préventif et curatif.",
     detail:
-      "Visites planifiées, contrôles d'étanchéité réglementaires, nettoyage, vérification des performances et tenue du registre des fluides. Des niveaux de prestation adaptés à votre parc (du préventif simple à la prise en charge complète).",
+      "Visites planifiées, contrôles d'étanchéité réglementaires, nettoyage, vérification des performances et tenue du registre des fluides. Des formules adaptées à votre parc, du préventif simple à la prise en charge complète, avec priorité d'intervention en dépannage.",
     points: [
-      "Visites préventives planifiées",
-      "Contrôle d'étanchéité et registre fluides",
-      "Plusieurs niveaux de contrat selon le parc",
+      "Visites préventives planifiées selon votre parc",
+      "Contrôles d'étanchéité réglementaires et registre des fluides",
+      "Priorité d'intervention en dépannage incluse",
     ],
   },
   {
     slug: "sav-depannage",
     image: "/photos/service-sav.webp", // photo en fin de bloc (vide = aucune)
     titre: "SAV & dépannage",
-    accroche: "Intervention sur panne pour limiter l'impact sur votre exploitation.",
+    accroche: "Dépannage et interventions curatives, en contrat ou à la demande.",
     detail:
       "Diagnostic, réparation et remise en service de vos équipements de climatisation. Suivi des interventions et conseil sur le renouvellement lorsque la réparation n'est plus pertinente.",
     points: [
-      "Diagnostic et réparation",
-      "Remise en service",
-      "Conseil renouvellement / remplacement",
+      "Diagnostic et réparation rapides",
+      "Interventions curatives planifiées ou d'urgence",
+      "Priorité d'intervention pour les clients sous contrat",
+    ],
+  },
+  {
+    slug: "installation-vrv-drv",
+    image: "/photos/service-installation.webp", // photo en fin de bloc (vide = aucune)
+    titre: "Travaux & installation CVC / VRV",
+    accroche: "Remplacement, amélioration et installation d'équipements — en complément du contrat ou en projet dédié.",
+    detail:
+      "Remplacement d'équipements vieillissants ou irréparables, amélioration d'installations existantes et projets neufs : étude, fourniture et pose de groupes extérieurs et unités intérieures, réseaux frigorifiques, raccordements et mise en service. Pour bureaux, commerces, ERP et bâtiments tertiaires.",
+    points: [
+      "Remplacement d'équipements vieillissants ou irréparables",
+      "Installation VRV / DRV neuve, bureaux, commerces et ERP",
+      "Rénovation énergétique et travaux de plomberie associés",
     ],
   },
   {
@@ -85,23 +85,23 @@ export const services = [
 export const methode = [
   {
     n: "01",
-    titre: "Étude & dimensionnement",
-    texte: "Bilan des besoins, sélection des équipements et chiffrage détaillé par lot.",
+    titre: "État des lieux du parc",
+    texte: "Visite technique de vos installations (clim, CVC, plomberie) et bilan de leur état, même si nous ne les avons pas posées.",
   },
   {
     n: "02",
-    titre: "Installation",
-    texte: "Pose des groupes, unités et réseaux frigorifiques cuivre, raccordements et coordination chantier.",
+    titre: "Contrat sur mesure",
+    texte: "Formule de maintenance adaptée au parc et à l'usage : fréquence des visites, périmètre, conditions d'intervention.",
   },
   {
     n: "03",
-    titre: "Mise en service F-Gas",
-    texte: "Mise en route, contrôles, charge des fluides et constitution des documents réglementaires.",
+    titre: "Entretien planifié",
+    texte: "Visites préventives, contrôles d'étanchéité réglementaires, registre des fluides et travaux préventifs.",
   },
   {
     n: "04",
-    titre: "Maintenance",
-    texte: "Suivi dans la durée : préventif, contrôle d'étanchéité et réactivité en cas de panne.",
+    titre: "Dépannage & travaux",
+    texte: "Interventions curatives, remise en service, et travaux d'amélioration ou de remplacement quand c'est plus pertinent que réparer.",
   },
 ];
 
