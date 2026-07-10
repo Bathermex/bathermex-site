@@ -10,9 +10,9 @@ export const site = {
   name: "Bathermex",
   baseline: "Climatisation tertiaire VRV / DRV",
   // Phrase d'accroche
-  tagline: "Contrats de maintenance annuels, travaux préventifs et interventions curatives sur vos installations de climatisation tertiaire VRV / DRV, en PACA et en Île-de-France.",
+  tagline: "Contrats de maintenance annuels, travaux préventifs et interventions curatives sur vos installations de climatisation, CVC / VRV et plomberie, en PACA et en Île-de-France.",
   description:
-    "Bathermex, maintenance de climatisation tertiaire VRV / DRV : contrats annuels, maintenance préventive et curative, dépannage. Bureaux, commerces et ERP, sur deux implantations : Allauch (13) et Paris / Île-de-France.",
+    "Bathermex, maintenance de climatisation CVC / VRV et plomberie : contrats annuels, maintenance préventive et curative, dépannage. Bureaux, commerces et ERP, sur deux implantations : Allauch (13) et Paris / Île-de-France.",
 
   zones: ["PACA", "Île-de-France"],
 
@@ -34,18 +34,3 @@ export const site = {
     raisonSociale: "SAS Bathermex",
     forme: "SAS",
   },
-
-  // Réseaux (laisser vide si non utilisé → n'affiche rien)
-  linkedin: "", // ex. "https://www.linkedin.com/company/bathermex"
-};
-
-export const nav = [
-  { label: "Accueil", href: "/" },
-  { label: "Services", href: "/services" },
-  { label: "Réalisations", href: "/realisations" },
-  { label: "À propos", href: "/a-propos" },
-  { label: "Contact", href: "/contact" },
-];
-
-// Aide : un champ est-il encore un placeholder ?
-export const isPlaceholder = (v: string): boolean => !v || v.includes("〔");
