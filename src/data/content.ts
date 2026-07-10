@@ -28,29 +28,16 @@ export const reassurance = [
 // --- Services ------------------------------------------------
 export const services = [
   {
-    slug: "installation-vrv-drv",
-    image: "/photos/service-installation.webp", // photo en fin de bloc (vide = aucune)
-    titre: "Installation VRV / DRV",
-    accroche: "Conception et pose de systèmes à détente directe pour le tertiaire.",
-    detail:
-      "Étude de dimensionnement, fourniture et installation de groupes extérieurs et unités intérieures, réseaux frigorifiques cuivre, raccordements électriques et mise en service. Pour bureaux, commerces, ERP et bâtiments tertiaires neufs ou en rénovation.",
-    points: [
-      "Bureaux, plateaux et open-spaces",
-      "Commerces et locaux recevant du public",
-      "Neuf et rénovation énergétique",
-    ],
-  },
-  {
     slug: "maintenance",
     image: "/photos/service-maintenance.webp", // photo en fin de bloc (vide = aucune)
-    titre: "Maintenance préventive",
-    accroche: "Contrats d'entretien pour préserver performance et durée de vie des installations.",
+    titre: "Contrats de maintenance annuels",
+    accroche: "Notre cœur d'activité : votre parc suivi toute l'année, préventif et curatif.",
     detail:
-      "Visites planifiées, contrôles d'étanchéité réglementaires, nettoyage, vérification des performances et tenue du registre des fluides. Des niveaux de prestation adaptés à votre parc (du préventif simple à la prise en charge complète).",
+      "Visites planifiées, contrôles d'étanchéité réglementaires, nettoyage, vérification des performances et tenue du registre des fluides. Des formules adaptées à votre parc, du préventif simple à la prise en charge complète, avec priorité d'intervention en dépannage.",
     points: [
-      "Visites préventives planifiées",
-      "Contrôle d'étanchéité et registre fluides",
-      "Plusieurs niveaux de contrat selon le parc",
+      "Visites préventives planifiées selon votre parc",
+      "Contrôles d'étanchéité réglementaires et registre des fluides",
+      "Priorité d'intervention en dépannage incluse",
     ],
   },
   {
@@ -64,6 +51,19 @@ export const services = [
       "Diagnostic et réparation rapides",
       "Interventions curatives planifiées ou d'urgence",
       "Priorité d'intervention pour les clients sous contrat",
+    ],
+  },
+  {
+    slug: "installation-vrv-drv",
+    image: "/photos/service-installation.webp", // photo en fin de bloc (vide = aucune)
+    titre: "Travaux & installation CVC / VRV",
+    accroche: "Remplacement, amélioration et installation d'équipements — en complément du contrat ou en projet dédié.",
+    detail:
+      "Remplacement d'équipements vieillissants ou irréparables, amélioration d'installations existantes et projets neufs : étude, fourniture et pose de groupes extérieurs et unités intérieures, réseaux frigorifiques, raccordements et mise en service. Pour bureaux, commerces, ERP et bâtiments tertiaires.",
+    points: [
+      "Remplacement d'équipements vieillissants ou irréparables",
+      "Installation VRV / DRV neuve, bureaux, commerces et ERP",
+      "Rénovation énergétique et travaux de plomberie associés",
     ],
   },
   {
