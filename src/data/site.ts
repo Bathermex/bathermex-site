@@ -41,7 +41,9 @@ export const site = {
 
 export const nav = [
   { label: "Accueil", href: "/" },
-  { label: "Services", href: "/services" },
+  { label: "Solutions CVC", href: "/solutions-cvc" },
+  { label: "Solutions GTB", href: "/solutions-gtb" },
+  { label: "Maintenance", href: "/maintenance" },
   { label: "Réalisations", href: "/realisations" },
   { label: "À propos", href: "/a-propos" },
   { label: "Contact", href: "/contact" },
