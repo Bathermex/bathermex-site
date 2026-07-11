@@ -1,15 +1,13 @@
 ---
 // ============================================================
-// / — HOME PORTAIL (S2). Remplace l'ancienne home pivot maintenance,
-// dont le contenu vit désormais sur /maintenance.
-// Sources : ✏️ hero/société/CTA (à valider direction) · ♻️ apercuAccueil ·
-//           ✅ décision E (domaines) + décision F (6 logos).
+// / — HOME PORTAIL V2 (grandes photos, ligne de confiance, polish).
+// Points UI 3/4/6/7 inspirés de la concurrence, adaptés à l'identité
+// cuivre/marine (B2B tertiaire). Photos réelles fournies par Brice.
 // ============================================================
 import Base from "../layouts/Base.astro";
 import CTA from "../components/CTA.astro";
-import { apercuAccueil, heroImages } from "../data/content";
+import { heroImages } from "../data/content";
 
-// ✅ décision F — 6 logos clients (accords archivés Brice). Section masquée si vide.
 const logosClients = [
   { src: "/logos/bnp-paribas-logo.svg", alt: "BNP Paribas" },
   { src: "/logos/clinique-juge-logo.svg", alt: "Clinique Juge" },
@@ -19,13 +17,16 @@ const logosClients = [
   { src: "/logos/thales-logo.svg", alt: "Thales" },
 ];
 
+// Point 3 — cartes "univers" en grande photo
 const solutions = [
-  { href: "/solutions-cvc", titre: "Solutions CVC", texte: "Installation VRV/DRV, chauffage et ventilation pour le tertiaire." },
-  { href: "/solutions-gtb", titre: "Solutions GTB", texte: "Supervision à distance, télémaintenance et intégration de vos équipements." },
-  { href: "/maintenance", titre: "Maintenance", texte: "Contrats annuels, entretien préventif et dépannage de votre parc." },
+  { href: "/solutions-cvc", titre: "Solutions CVC", texte: "Installation VRV/DRV, chauffage et ventilation pour le tertiaire.", img: "/photos/home-cvc.webp" },
+  { href: "/solutions-gtb", titre: "Solutions GTB", texte: "Supervision à distance, télémaintenance et intégration de vos équipements.", img: "/photos/home-gtb.webp" },
+  { href: "/maintenance", titre: "Maintenance", texte: "Contrats annuels, entretien préventif et dépannage de votre parc.", img: "/photos/home-maintenance.webp" },
 ];
 
 const domaines = ["Bureaux & tertiaire", "Commerces", "Hôtellerie-restauration", "Santé / ERP"];
+// Point 6 — ligne de confiance (faits vérifiables, aucune certif non validée)
+const confiance = ["Bi-site : PACA & Île-de-France", "Interlocuteur unique", "Garantie décennale"];
 ---
 
 <Base
@@ -46,18 +47,24 @@ const domaines = ["Bureaux & tertiaire", "Commerces", "Hôtellerie-restauration"
       <p class="mt-6 max-w-2xl text-lg leading-relaxed text-fog/80">
         Un interlocuteur unique pour vos installations de climatisation tertiaire, en PACA et en Île-de-France.
       </p>
+
+      <!-- Point 6 : ligne de confiance -->
+      <ul class="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-fog/75">
+        {confiance.map((c) => (
+          <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-copper-bright"></span>{c}</li>
+        ))}
+      </ul>
+
       <div class="mt-9 flex flex-wrap gap-3">
-        <a href="/solutions-cvc" class="btn btn-light">Solutions CVC</a>
+        <a href="/contact" class="btn btn-light">Demander un devis</a>
+        <a href="/solutions-cvc" class="btn btn-ghost !border-white/25 !text-white hover:!border-copper">Solutions CVC</a>
         <a href="/solutions-gtb" class="btn btn-ghost !border-white/25 !text-white hover:!border-copper">Solutions GTB</a>
         <a href="/maintenance" class="btn btn-ghost !border-white/25 !text-white hover:!border-copper">Maintenance</a>
-      </div>
-      <div class="mt-8">
-        <a href="/contact" class="text-sm font-medium text-copper-bright underline underline-offset-4">Demander un devis →</a>
       </div>
     </div>
   </section>
 
-  <!-- ============ LOGOS CLIENTS (conditionnel) ============ -->
+  <!-- ============ LOGOS CLIENTS (grille harmonisée) ============ -->
   {logosClients.length > 0 && (
     <section class="border-b border-mist bg-paper">
       <div class="mx-auto max-w-6xl px-5 py-12">
@@ -73,16 +80,22 @@ const domaines = ["Bureaux & tertiaire", "Commerces", "Hôtellerie-restauration"
     </section>
   )}
 
-  <!-- ============ NOS SOLUTIONS (3 cartes) ============ -->
-  <section class="mx-auto max-w-6xl px-5 py-16">
+  <!-- ============ NOS SOLUTIONS (Point 3 : grandes cartes-photos) ============ -->
+  <section class="mx-auto max-w-6xl px-5 py-20">
     <div class="copper-rule mb-5"></div>
     <h2 class="text-3xl font-semibold text-ink">Nos solutions</h2>
-    <div class="mt-9 grid gap-5 md:grid-cols-3">
+    <p class="mt-3 max-w-2xl text-slate">Trois univers, un seul interlocuteur : de l'installation au pilotage à distance.</p>
+    <div class="mt-10 grid gap-6 md:grid-cols-3">
       {solutions.map((s) => (
-        <a href={s.href} class="card block p-7 transition-shadow hover:shadow-[0_1px_0_#bd5a17]">
-          <h3 class="font-display text-xl font-semibold text-ink">{s.titre}</h3>
-          <p class="mt-2 text-slate">{s.texte}</p>
-          <span class="link-copper mt-4 inline-block text-sm font-medium">Découvrir →</span>
+        <a href={s.href} class="group block overflow-hidden rounded-xl border border-mist bg-paper shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src={s.img} alt={s.titre} width="800" height="600" loading="lazy" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-semibold text-ink">{s.titre}</h3>
+            <p class="mt-2 leading-relaxed text-slate">{s.texte}</p>
+            <span class="link-copper mt-4 inline-block text-sm font-medium">Découvrir →</span>
+          </div>
         </a>
       ))}
     </div>
@@ -90,10 +103,10 @@ const domaines = ["Bureaux & tertiaire", "Commerces", "Hôtellerie-restauration"
 
   <!-- ============ DOMAINES (décision E) ============ -->
   <section class="bg-paper">
-    <div class="mx-auto max-w-6xl px-5 py-14">
+    <div class="mx-auto max-w-6xl px-5 py-16">
       <div class="copper-rule mb-5"></div>
       <h2 class="text-3xl font-semibold text-ink">Nos domaines d'intervention</h2>
-      <ul class="mt-6 flex flex-wrap gap-2">
+      <ul class="mt-6 flex flex-wrap gap-2.5">
         {domaines.map((d) => (
           <li class="rounded-full border border-mist bg-fog px-4 py-1.5 text-sm text-slate">{d}</li>
         ))}
@@ -101,52 +114,24 @@ const domaines = ["Bureaux & tertiaire", "Commerces", "Hôtellerie-restauration"
     </div>
   </section>
 
-  <!-- ============ RÉALISATIONS (aperçu) ============ -->
-  <section class="mx-auto max-w-6xl px-5 py-20">
-    <div class="copper-rule mb-5"></div>
-    <div class="flex flex-wrap items-end justify-between gap-4">
-      <div>
-        <h2 class="text-3xl font-semibold text-ink">Réalisations</h2>
-        <p class="mt-3 max-w-2xl text-slate">La preuve par les chantiers : contexte, solution mise en œuvre, résultat.</p>
-      </div>
-      <a href="/realisations" class="link-copper text-sm font-medium">Toutes les réalisations →</a>
-    </div>
-    <div class="mt-9 grid gap-5 md:grid-cols-3">
-      {apercuAccueil.map((r) => (
-        <article class="card overflow-hidden">
-          {r.image
-            ? <img src={r.image} alt={r.titre} width="640" height="480" class="aspect-[4/3] w-full border-b border-mist object-cover" loading="lazy" />
-            : <div class="flex aspect-[4/3] items-center justify-center border-b border-mist bg-fog text-xs font-medium uppercase tracking-wider text-slate/60">Photo chantier</div>}
-          <div class="p-6">
-            <span class="eyebrow text-[0.7rem]">{r.typologie}</span>
-            <h3 class="mt-2 font-display text-lg font-semibold text-ink">{r.titre}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-slate">{r.contexte}</p>
-          </div>
-        </article>
-      ))}
-    </div>
-  </section>
-
   <!-- ============ SOCIÉTÉ ============ -->
-  <section class="bg-paper">
-    <div class="mx-auto max-w-6xl px-5 py-16">
-      <div class="grid gap-10 md:grid-cols-[1.4fr_1fr]">
-        <div class="space-y-4 leading-relaxed text-slate">
-          <div class="copper-rule mb-2"></div>
-          <h2 class="text-3xl font-semibold text-ink">Bathermex, de Marseille à Paris</h2>
-          <p>Spécialistes de la climatisation tertiaire à détente directe (VRV/DRV), nous installons, supervisons et entretenons vos équipements sur deux implantations complémentaires : Allauch (13) et Paris / Île-de-France.</p>
-          <p>Nous intervenons en direct, en sous-traitance déclarée pour des entreprises générales, et sur les marchés publics.</p>
-          <a href="/a-propos" class="link-copper inline-block text-sm font-medium">En savoir plus →</a>
-        </div>
-        <aside class="card p-6">
-          <h3 class="eyebrow mb-3">Nos engagements</h3>
-          <ul class="space-y-2 text-sm text-slate">
-            <li class="flex gap-2"><span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-copper"></span>Garantie décennale sur nos ouvrages (art. 1792)</li>
-            <li class="flex gap-2"><span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-copper"></span>Deux implantations : PACA et Île-de-France</li>
-            <li class="flex gap-2"><span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-copper"></span>Suivi et conseil dans la durée</li>
-          </ul>
-        </aside>
+  <section class="mx-auto max-w-6xl px-5 py-20">
+    <div class="grid gap-10 md:grid-cols-[1.4fr_1fr]">
+      <div class="space-y-4 leading-relaxed text-slate">
+        <div class="copper-rule mb-2"></div>
+        <h2 class="text-3xl font-semibold text-ink">Bathermex, de Marseille à Paris</h2>
+        <p>Spécialistes de la climatisation tertiaire à détente directe (VRV/DRV), nous installons, supervisons et entretenons vos équipements sur deux implantations complémentaires : Allauch (13) et Paris / Île-de-France.</p>
+        <p>Nous intervenons en direct, en sous-traitance déclarée pour des entreprises générales, et sur les marchés publics.</p>
+        <a href="/a-propos" class="link-copper inline-block text-sm font-medium">En savoir plus →</a>
       </div>
+      <aside class="card p-6">
+        <h3 class="eyebrow mb-3">Nos engagements</h3>
+        <ul class="space-y-2 text-sm text-slate">
+          <li class="flex gap-2"><span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-copper"></span>Garantie décennale sur nos ouvrages (art. 1792)</li>
+          <li class="flex gap-2"><span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-copper"></span>Deux implantations : PACA et Île-de-France</li>
+          <li class="flex gap-2"><span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-copper"></span>Suivi et conseil dans la durée</li>
+        </ul>
+      </aside>
     </div>
   </section>
 
