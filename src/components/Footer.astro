@@ -17,7 +17,7 @@ const mailOk = !isPlaceholder(site.contact.email);
 
     <!-- Navigation -->
     <div>
-      <h2 class="eyebrow mb-4">Navigation</h2>
+      <h2 class="eyebrow mb-4 !text-copper-bright">Navigation</h2>
       <ul class="space-y-2 text-sm">
         {nav.map((item) => (
           <li><a href={item.href} class="transition-colors hover:text-white">{item.label}</a></li>
@@ -28,7 +28,7 @@ const mailOk = !isPlaceholder(site.contact.email);
 
     <!-- Contact -->
     <div>
-      <h2 class="eyebrow mb-4">Contact</h2>
+      <h2 class="eyebrow mb-4 !text-copper-bright">Contact</h2>
       <ul class="space-y-2 text-sm">
         <li>{site.contact.adresse}</li>
         <li>{site.contact.cpVille}</li>
