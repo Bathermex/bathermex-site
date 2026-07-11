@@ -4,3 +4,14 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Migration V2 (S3) : l'ancienne page /services est supprimée, redirigée vers l'accueil
+[[redirects]]
+  from = "/services"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/services/"
+  to = "/"
+  status = 301
