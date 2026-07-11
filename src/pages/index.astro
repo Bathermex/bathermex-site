@@ -19,9 +19,9 @@ const logosClients = [
 
 // Point 3 — cartes "univers" en grande photo
 const solutions = [
-  { href: "/solutions-cvc", titre: "Solutions CVC", texte: "Installation VRV/DRV, chauffage et ventilation pour le tertiaire.", img: "/photos/home-cvc.webp" },
-  { href: "/solutions-gtb", titre: "Solutions GTB", texte: "Supervision à distance, télémaintenance et intégration de vos équipements.", img: "/photos/home-gtb.webp" },
-  { href: "/maintenance", titre: "Maintenance", texte: "Contrats annuels, entretien préventif et dépannage de votre parc.", img: "/photos/home-maintenance.webp" },
+  { href: "/solutions-cvc", titre: "Solutions CVC", texte: "Installation VRV/DRV, chauffage et ventilation pour le tertiaire.", img: "/photos/home-cvc.webp", alt: "Centrale de traitement d'air en toiture — installation CVC tertiaire" },
+  { href: "/solutions-gtb", titre: "Solutions GTB", texte: "Supervision à distance, télémaintenance et intégration de vos équipements.", img: "/photos/home-gtb.webp", alt: "Armoire de supervision GTB à écran tactile pour installations CVC" },
+  { href: "/maintenance", titre: "Maintenance", texte: "Contrats annuels, entretien préventif et dépannage de votre parc.", img: "/photos/home-maintenance.webp", alt: "Technicien en maintenance de climatisation avec manifold de mesure" },
 ];
 
 const domaines = ["Bureaux & tertiaire", "Commerces", "Hôtellerie-restauration", "Santé / ERP"];
@@ -36,7 +36,7 @@ const confiance = ["Bi-site : PACA & Île-de-France", "Interlocuteur unique", "G
   <!-- ============ HERO PORTAIL ============ -->
   <section class="relative overflow-hidden bg-ink text-fog">
     {heroImages.accueil && (
-      <img src={heroImages.accueil} alt="" loading="eager" class="absolute inset-0 h-full w-full object-cover" />
+      <img src={heroImages.accueil} alt="Groupes extérieurs de climatisation VRV/DRV sur la toiture d'un bâtiment tertiaire" loading="eager" class="absolute inset-0 h-full w-full object-cover" />
     )}
     {heroImages.accueil && <div class="absolute inset-0 bg-ink/75"></div>}
     <div class="relative mx-auto max-w-6xl px-5 py-24 md:py-32">
@@ -83,7 +83,7 @@ const confiance = ["Bi-site : PACA & Île-de-France", "Interlocuteur unique", "G
       {solutions.map((s) => (
         <a href={s.href} class="group block overflow-hidden rounded-xl border border-mist bg-paper shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
           <div class="aspect-[4/3] overflow-hidden">
-            <img src={s.img} alt={s.titre} width="800" height="600" loading="lazy" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <img src={s.img} alt={s.alt} width="800" height="600" loading="lazy" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
           </div>
           <div class="p-6">
             <h3 class="font-display text-xl font-semibold text-ink">{s.titre}</h3>

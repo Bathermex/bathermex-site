@@ -1,12 +1,12 @@
 ---
-interface Props { eyebrow?: string; title: string; intro?: string; image?: string; }
-const { eyebrow, title, intro, image } = Astro.props;
+interface Props { eyebrow?: string; title: string; intro?: string; image?: string; imageAlt?: string; }
+const { eyebrow, title, intro, image, imageAlt } = Astro.props;
 ---
 
 {image ? (
   /* --- Variante AVEC photo de fond + voile sombre + texte blanc --- */
   <section class="relative overflow-hidden border-b border-ink/10">
-    <img src={image} alt="" loading="eager" class="absolute inset-0 h-full w-full object-cover" />
+    <img src={image} alt={imageAlt ?? ""} loading="eager" class="absolute inset-0 h-full w-full object-cover" />
     <div class="absolute inset-0 bg-ink/70"></div>
     <div class="relative mx-auto max-w-6xl px-5 py-20 md:py-28">
       {eyebrow && <p class="eyebrow !text-copper-bright">{eyebrow}</p>}
