@@ -62,9 +62,11 @@ const domaines = ["Bureaux & tertiaire", "Commerces", "Hôtellerie-restauration"
     <section class="border-b border-mist bg-paper">
       <div class="mx-auto max-w-6xl px-5 py-12">
         <p class="eyebrow text-center">Ils nous font confiance</p>
-        <ul class="mt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+        <ul class="mt-8 grid grid-cols-2 items-center gap-x-8 gap-y-8 sm:grid-cols-3 md:grid-cols-6">
           {logosClients.map((l) => (
-            <li><img src={l.src} alt={l.alt} height="36" class="h-9 w-auto opacity-80" loading="lazy" /></li>
+            <li class="flex h-12 items-center justify-center">
+              <img src={l.src} alt={l.alt} class="max-h-10 w-auto max-w-[130px] object-contain opacity-80" loading="lazy" />
+            </li>
           ))}
         </ul>
       </div>
