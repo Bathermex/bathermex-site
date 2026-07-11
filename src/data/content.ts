@@ -111,37 +111,37 @@ export const methode = [
 // + ACCORD CLIENT (cf. CONTENU_A_COMPLETER.md, point le plus important).
 export const realisations = [
   {
-    slug: "exemple-1",
-    placeholder: true,
-    image: "/photos/realisation-1.webp", // ex. "/realisations/chantier-1.jpg" — déposer le fichier dans public/realisations/
-    titre: "〔Chantier 1 — titre〕",
+    slug: "coworking-marignane",
+    placeholder: false,
+    image: "/photos/realisation-1.webp",
+    titre: "Espace de coworking",
     typologie: "Bureaux / tertiaire",
-    lieu: "〔Lieu〕",
-    contexte: "〔Contexte : type de bâtiment, surface, problématique de départ.〕",
-    solution: "〔Solution Bathermex : équipements posés, particularités techniques.〕",
-    resultat: "〔Résultat : confort, performance, délai, satisfaction client.〕",
+    lieu: "Marignane",
+    contexte: "Espace de coworking de 350 m², redivisé en plusieurs locaux selon les plans.",
+    solution: "Installation de climatisation par cassettes plafonnières (VRV / DRV), répartie selon le nouveau découpage des espaces.",
+    resultat: "Locaux climatisés et confortables, adaptés à la nouvelle configuration.",
   },
   {
-    slug: "exemple-2",
-    placeholder: true,
+    slug: "magasin-les-docks",
+    placeholder: false,
     image: "/photos/realisation-2.webp",
-    titre: "〔Chantier 2 — titre〕",
+    titre: "Magasin — Les Docks",
     typologie: "Commerce / ERP",
-    lieu: "〔Lieu〕",
-    contexte: "〔Contexte du chantier.〕",
-    solution: "〔Solution mise en œuvre.〕",
-    resultat: "〔Résultat obtenu.〕",
+    lieu: "Marseille",
+    contexte: "Magasin de 275 m² aux Docks de Marseille.",
+    solution: "Mise en place de climatisation gainable.",
+    resultat: "Surface de vente climatisée par gainables discrets, intégrés au plafond.",
   },
   {
-    slug: "exemple-3",
-    placeholder: true,
+    slug: "logements-sociaux-aix",
+    placeholder: false,
     image: "/photos/realisation-3.webp",
-    titre: "〔Chantier 3 — titre〕",
+    titre: "Logements sociaux — R+6",
     typologie: "Rénovation",
-    lieu: "〔Lieu〕",
-    contexte: "〔Contexte du chantier.〕",
-    solution: "〔Solution mise en œuvre.〕",
-    resultat: "〔Résultat obtenu.〕",
+    lieu: "Aix-en-Provence",
+    contexte: "Immeuble de 45 logements sociaux, R+6, à Aix-en-Provence.",
+    solution: "Réfection complète de l'installation : production et distribution en chaufferie (circulateurs, réseaux).",
+    resultat: "Installation entièrement rénovée pour les 45 logements.",
   },
 ];
 
@@ -154,13 +154,13 @@ export const apercuAccueil = [
 ];
 
 export const realisationExempleRedige = {
-  titre: "〔Chantier 4 — titre〕",
+  titre: "Concession automobile",
   image: "/photos/realisation-4.webp",
-  typologie: "〔Typologie〕",
-  lieu: "〔Lieu〕",
-  contexte: "〔Contexte : type de bâtiment, surface, problématique de départ.〕",
-  solution: "〔Solution Bathermex : équipements posés, particularités techniques.〕",
-  resultat: "〔Résultat : confort, performance, délai, satisfaction client.〕",
+  typologie: "Bureaux / tertiaire",
+  lieu: "Aubagne",
+  contexte: "Aménagement des bureaux d'une concession automobile, 480 m², à Aubagne.",
+  solution: "Installation de climatisation (gainable et cassette) intégrée à l'aménagement des bureaux.",
+  resultat: "Bureaux climatisés, livrés avec l'aménagement.",
 };
 
 // --- FAQ (réassurance + SEO léger) ---------------------------
