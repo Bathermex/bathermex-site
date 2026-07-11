@@ -28,6 +28,26 @@ const methode = [
   { n: "04", titre: "Suivi", texte: "Supervision continue, interventions à distance ou sur site." },
 ];
 
+// ✏️ adapté du contenu fourni par Brice — réécrit (original), "GTB Light" retiré,
+// chiffre "30%" et "nos clients observent" retirés (promesse de résultat invérifiable).
+const avantages = [
+  { titre: "Économies d'énergie", points: [
+    "Réduction des coûts : une gestion optimisée de l'énergie permet de réduire les factures énergétiques du bâtiment.",
+    "Utilisation rationnelle des ressources : la supervision technique favorise un usage plus efficace des équipements de votre bâtiment.",
+  ] },
+  { titre: "Contrôle et transparence", points: [
+    "Gestion centralisée : un tableau de bord unique offre une vision claire et complète de la performance de vos installations.",
+    "Décisions basées sur les données : des informations précises et en temps réel rendent le pilotage plus rapide et plus efficace.",
+  ] },
+  { titre: "Conformité aux normes", points: [
+    "Respect des exigences légales : nos solutions visent à répondre aux obligations réglementaires, notamment le décret tertiaire et le décret BACS.",
+    "Préparation pour l'avenir : des systèmes pensés pour s'adapter aux évolutions réglementaires à venir.",
+  ] },
+  { titre: "Maintenance préventive", points: [
+    "Une surveillance continue permet d'identifier et de résoudre les anomalies avant qu'elles ne deviennent critiques, réduisant les temps d'arrêt et les coûts de maintenance.",
+  ] },
+];
+
 // ⬜ FAQ à écrire/valider direction — laissée vide volontairement (rien de non validé ne s'affiche)
 const faqGtb: { q: string; r: string }[] = [];
 ---
@@ -67,6 +87,29 @@ const faqGtb: { q: string; r: string }[] = [];
           <p class="mt-2 leading-relaxed text-slate">{o.texte}</p>
         </article>
       ))}
+    </div>
+  </section>
+
+  <!-- Pourquoi choisir Bathermex ? (4 bénéfices GTB, ✏️ adapté/réécrit — voir note dans le frontmatter) -->
+  <section class="bg-paper">
+    <div class="mx-auto max-w-6xl px-5 py-16">
+      <div class="copper-rule mb-5"></div>
+      <h2 class="font-display text-3xl font-semibold text-ink">Pourquoi choisir Bathermex comme intégrateur GTB ?</h2>
+      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {avantages.map((a) => (
+          <article class="card p-6">
+            <h3 class="font-display text-lg font-semibold text-ink">{a.titre}</h3>
+            <ul class="mt-4 space-y-3">
+              {a.points.map((p) => (
+                <li class="flex gap-2.5 text-sm leading-relaxed text-slate">
+                  <span class="mt-0.5 shrink-0 font-semibold text-copper" aria-hidden="true">✓</span>
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 
