@@ -44,6 +44,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://bathermex.c
       description: site.description,
       areaServed: ["Provence-Alpes-Côte d'Azur", "Île-de-France"],
       address: { "@type": "PostalAddress", addressLocality: "Allauch", postalCode: "13190", addressCountry: "FR" },
+      telephone: site.contact.tel,
       url: canonical,
     })} />
   </head>
