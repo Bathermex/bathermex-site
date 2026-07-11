@@ -1,0 +1,131 @@
+---
+// ============================================================
+// /solutions-cvc — S1 (Lot S). Page "hors menu" (nav ajoutée en S3).
+// SOURCES :
+//   ♻️ offre  = carte service "installation-vrv-drv" (export content.ts, texte EXACT prod)
+//   ♻️ FAQ    = question "Quelle différence entre VRV et DRV ?" (export faq, texte EXACT)
+//   ✏️ "comment on travaille" = volet étude→pose→MES RECRÉÉ (divergence D2 : n'existe
+//        plus en ligne, la méthode prod est 100% maintenance). Base : historique git.
+//        → relecture Brice attendue.
+// ============================================================
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import CTA from "../components/CTA.astro";
+import { services, faq, realisations } from "../data/content";
+
+const installation = services.filter((s) => s.slug === "installation-vrv-drv");
+const faqCvc = faq.filter((f) => f.q.startsWith("Quelle différence"));
+const realisationsReelles = realisations.filter((r) => !r.placeholder);
+const domaines = ["Bureaux & tertiaire", "Commerces", "Hôtellerie-restauration", "Santé / ERP"];
+
+// ✏️ À RECRÉER (D2) — volet installation, relecture Brice
+const methodeInstallation = [
+  { n: "01", titre: "Étude", texte: "Visite technique, bilan des besoins et dimensionnement de l'installation." },
+  { n: "02", titre: "Devis", texte: "Proposition chiffrée détaillée, options claires, sans engagement." },
+  { n: "03", titre: "Pose", texte: "Installation par nos équipes, sur nos deux implantations (Marseille / Paris)." },
+  { n: "04", titre: "Mise en service", texte: "Réglages, contrôles, remise en main et documentation de l'installation." },
+];
+---
+
+<Base
+  title="Installation climatisation VRV/DRV"
+  description="Étude, pose et mise en service de climatisation VRV/DRV, chauffage et ventilation pour le tertiaire, en PACA et Île-de-France. Devis rapide."
+>
+  <PageHero
+    eyebrow="Solutions CVC"
+    title="Installation de climatisation VRV/DRV tertiaire"
+    intro="Remplacement, amélioration et installation d'équipements — en complément du contrat ou en projet dédié."
+  />
+
+  <!-- L'offre (♻️ texte exact du service installation) -->
+  <section class="mx-auto max-w-6xl px-5 py-16">
+    <div class="space-y-5">
+      {installation.map((s) => (
+        <article id={s.slug} class="card grid gap-6 p-8 md:grid-cols-[auto_1fr] md:gap-10">
+          <div class="font-display text-3xl font-semibold text-copper md:pt-1">01</div>
+          <div>
+            <h2 class="font-display text-2xl font-semibold text-ink">{s.titre}</h2>
+            <p class="mt-2 text-lg text-slate">{s.accroche}</p>
+            <p class="mt-4 max-w-3xl leading-relaxed text-slate">{s.detail}</p>
+            <ul class="mt-5 flex flex-wrap gap-2">
+              {s.points.map((p) => (
+                <li class="rounded-full border border-mist bg-fog px-3 py-1 text-sm text-slate">{p}</li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Pour qui (décision E actée) -->
+  <section class="bg-paper">
+    <div class="mx-auto max-w-6xl px-5 py-14">
+      <div class="copper-rule mb-5"></div>
+      <h2 class="text-3xl font-semibold text-ink">Pour qui</h2>
+      <ul class="mt-6 flex flex-wrap gap-2">
+        {domaines.map((d) => (
+          <li class="rounded-full border border-mist bg-fog px-4 py-1.5 text-sm text-slate">{d}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Comment on travaille (✏️ recréé D2) -->
+  <section class="mx-auto max-w-6xl px-5 py-20">
+    <div class="copper-rule mb-5"></div>
+    <h2 class="max-w-xl text-3xl font-semibold text-ink">De l'étude à la mise en service</h2>
+    <p class="mt-3 max-w-2xl text-slate">Un interlocuteur unique, de la première visite au réglage final.</p>
+    <ol class="mt-12 grid gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+      {methodeInstallation.map((m) => (
+        <li class="relative pr-6">
+          <span class="font-display text-sm font-semibold text-copper">{m.n}</span>
+          <h3 class="mt-2 font-display text-lg font-semibold text-ink">{m.titre}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate">{m.texte}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- Réalisations liées : conditionnel -->
+  {realisationsReelles.length > 0 && (
+    <section class="bg-paper">
+      <div class="mx-auto max-w-6xl px-5 py-20">
+        <div class="copper-rule mb-5"></div>
+        <h2 class="text-3xl font-semibold text-ink">Réalisations liées</h2>
+        <div class="mt-9 grid gap-5 md:grid-cols-3">
+          {realisationsReelles.map((r) => (
+            <article class="card overflow-hidden">
+              <div class="p-6">
+                <span class="eyebrow text-[0.7rem]">{r.typologie}</span>
+                <h3 class="mt-2 font-display text-lg font-semibold text-ink">{r.titre}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate">{r.contexte}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- FAQ (♻️ Q1 exacte) -->
+  {faqCvc.length > 0 && (
+    <section class="mx-auto max-w-4xl px-5 py-16">
+      <div class="copper-rule mb-5"></div>
+      <h2 class="text-3xl font-semibold text-ink">Questions fréquentes</h2>
+      <div class="mt-8 divide-y divide-mist border-y border-mist">
+        {faqCvc.map((f) => (
+          <details class="group py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-medium text-ink">
+              {f.q}
+              <span class="text-copper transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-3 leading-relaxed text-slate">{f.r}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <CTA title="Un projet d'installation ?" text="Décrivez-nous votre site : nous revenons vers vous avec une étude et un chiffrage adaptés." />
+</Base>
