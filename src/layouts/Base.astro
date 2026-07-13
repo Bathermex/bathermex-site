@@ -21,7 +21,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://bathermex.c
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDesc} />
     <link rel="canonical" href={canonical} />
@@ -46,6 +49,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://bathermex.c
       address: { "@type": "PostalAddress", addressLocality: "Allauch", postalCode: "13190", addressCountry: "FR" },
       telephone: site.contact.tel,
       url: canonical,
+      logo: "https://bathermex.com/logo-icon.png",
+      image: "https://bathermex.com/logo-bathermex.png",
     })} />
   </head>
   <body>
