@@ -10,7 +10,7 @@
 import Base from "../layouts/Base.astro";
 import PageHero from "../components/PageHero.astro";
 import CTA from "../components/CTA.astro";
-import { services, methode, faq, realisations, heroImages } from "../data/content";
+import { services, methode, faq, realisations, realisationsMaintenance, heroImages } from "../data/content";
 import { site } from "../data/site";
 
 const offre = services.filter((s) => ["maintenance", "sav-depannage"].includes(s.slug));
@@ -89,15 +89,18 @@ const domaines = ["Bureaux & tertiaire", "Commerces", "Hôtellerie-restauration"
     </ol>
   </section>
 
-  <!-- Réalisations liées : conditionnel, non rendu tant que M06 vide -->
-  {realisationsReelles.length > 0 && (
+  <!-- Réalisations liées : interventions de maintenance (photos réelles) -->
+  {realisationsMaintenance.length > 0 && (
     <section class="bg-paper">
       <div class="mx-auto max-w-6xl px-5 py-20">
         <div class="copper-rule mb-5"></div>
-        <h2 class="text-3xl font-semibold text-ink">Réalisations liées</h2>
-        <div class="mt-9 grid gap-5 md:grid-cols-3">
-          {realisationsReelles.map((r) => (
+        <h2 class="text-3xl font-semibold text-ink">Nos interventions de maintenance</h2>
+        <div class="mt-9 grid gap-5 sm:grid-cols-2">
+          {realisationsMaintenance.map((r) => (
             <article class="card overflow-hidden">
+              {r.image && (
+                <img src={r.image} alt={`${r.titre} — ${r.typologie}`} width="800" height="600" loading="lazy" class="aspect-[4/3] w-full object-cover" />
+              )}
               <div class="p-6">
                 <span class="eyebrow text-[0.7rem]">{r.typologie}</span>
                 <h3 class="mt-2 font-display text-lg font-semibold text-ink">{r.titre}</h3>
