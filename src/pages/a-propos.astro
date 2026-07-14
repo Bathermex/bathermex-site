@@ -3,23 +3,57 @@ import Base from "../layouts/Base.astro";
 import PageHero from "../components/PageHero.astro";
 import CTA from "../components/CTA.astro";
 import { faq, heroImages } from "../data/content";
+
+// FAQ propres à cette page : Q2 (hors PACA) + Q4 (sous-traitance / AO).
+// Q1 (VRV vs DRV) et Q3 (contrats) sont déjà affichées sur /solutions-cvc
+// et /maintenance : on ne les duplique plus ici (anti-duplicate SEO).
+const faqAPropos = faq.filter(
+  (f) => f.q.startsWith("Intervenez-vous") || f.q.startsWith("Travaillez-vous")
+);
+
+// Les 3 métiers — maillage interne vers les pages piliers.
+const metiers = [
+  {
+    href: "/solutions-cvc",
+    titre: "Installation CVC / VRV",
+    texte: "Étude, fourniture, pose et mise en service de systèmes VRV / DRV, en neuf comme en rénovation.",
+  },
+  {
+    href: "/solutions-gtb",
+    titre: "Supervision GTB",
+    texte: "Supervision à distance, télémaintenance et intégration de vos équipements sur une interface unique.",
+  },
+  {
+    href: "/maintenance",
+    titre: "Maintenance & dépannage",
+    texte: "Contrats annuels, entretien préventif, contrôles réglementaires et interventions curatives sur votre parc.",
+  },
+];
+
+const lien = "font-medium text-copper underline-offset-2 hover:underline";
 ---
 
-<Base title="À propos" description="Bathermex, entreprise spécialisée en climatisation tertiaire VRV / DRV, implantée à Allauch (13) et en Île-de-France.">
+<Base
+  title="À propos — Climatisation tertiaire VRV/DRV"
+  description="Entreprise de climatisation tertiaire VRV/DRV : installation, GTB et maintenance. Allauch (13), près de Marseille, et Paris / Île-de-France."
+>
   <PageHero
     image={heroImages.aPropos}
     imageAlt="Bathermex, spécialiste de la climatisation tertiaire VRV/DRV en PACA et Île-de-France"
     eyebrow="L'entreprise"
-    title="Spécialistes de la climatisation tertiaire"
-    intro="Bathermex conçoit, installe et entretient des systèmes VRV / DRV pour les bâtiments tertiaires, sur deux implantations complémentaires."
+    title="Spécialistes de la climatisation tertiaire VRV / DRV"
+    intro="Bathermex installe, supervise (GTB) et entretient les systèmes de climatisation VRV / DRV des bâtiments tertiaires, depuis deux implantations complémentaires : Allauch (13) et Paris / Île-de-France."
   />
 
   <section class="mx-auto max-w-6xl px-5 py-16">
     <div class="grid gap-12 md:grid-cols-[1.4fr_1fr]">
       <div class="space-y-5 leading-relaxed text-slate">
         <p class="text-lg text-ink">
-          〔À COMPLÉTER : présentation de Bathermex〕 — quelques lignes sur l'histoire de l'entreprise,
-          son positionnement sur le tertiaire et ce qui la distingue.
+          Bathermex est une entreprise spécialisée dans la climatisation des bâtiments tertiaires.
+          Trois métiers complémentaires structurent notre activité :
+          l'<a href="/solutions-cvc" class={lien}>installation de systèmes VRV / DRV</a>,
+          la <a href="/solutions-gtb" class={lien}>supervision et la télémaintenance de vos équipements (GTB)</a>,
+          et la <a href="/maintenance" class={lien}>maintenance préventive, curative et réglementaire</a> de votre parc.
         </p>
         <p>
           Notre métier : la détente directe à débit de réfrigérant variable (VRV / DRV), pour les bureaux,
@@ -27,8 +61,10 @@ import { faq, heroImages } from "../data/content";
           en sous-traitance déclarée pour des entreprises générales, et sur les marchés publics.
         </p>
         <p>
-          〔À COMPLÉTER : un mot sur l'équipe et son savoir-faire〕 — taille, compétences, certifications
-          ou attestations détenues (à indiquer uniquement si elles sont avérées et vérifiables).
+          Nos équipes interviennent depuis nos deux implantations : Allauch (13), aux portes de Marseille,
+          pour la région PACA, et l'Île-de-France pour Paris et sa région. Du remplacement d'une unité au
+          chantier complet — <a href="/realisations" class={lien}>bureaux, commerces, crèches ou concessions</a> —,
+          nous assurons l'étude, la pose, la mise en service, puis le suivi dans la durée.
         </p>
       </div>
 
@@ -36,19 +72,37 @@ import { faq, heroImages } from "../data/content";
         <div class="card p-6">
           <h2 class="eyebrow mb-3">Nos implantations</h2>
           <ul class="space-y-3 text-sm text-slate">
-            <li><span class="font-semibold text-ink">Allauch (13190)</span><br/>Couverture PACA — Bouches-du-Rhône et départements voisins.</li>
+            <li><span class="font-semibold text-ink">Allauch (13190)</span><br/>Aux portes de Marseille. Couverture PACA — Bouches-du-Rhône et départements voisins.</li>
             <li><span class="font-semibold text-ink">Paris / Île-de-France</span><br/>Chantiers tertiaires à Paris et en région parisienne.</li>
           </ul>
         </div>
         <div class="card p-6">
           <h2 class="eyebrow mb-3">Nos engagements</h2>
           <ul class="space-y-2 text-sm text-slate">
-            <li class="flex gap-2"><span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-copper"></span>Garantie décennale sur nos ouvrages</li>
-            <li class="flex gap-2"><span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-copper"></span>Personnel attesté pour les fluides frigorigènes</li>
+            <li class="flex gap-2"><span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-copper"></span>Garantie décennale sur nos ouvrages (art. 1792 du Code civil)</li>
+            <li class="flex gap-2"><span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-copper"></span>Sous-traitance déclarée (loi 75-1334) et marchés publics (MAPA)</li>
             <li class="flex gap-2"><span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-copper"></span>Suivi et conseil dans la durée</li>
           </ul>
         </div>
       </aside>
+    </div>
+  </section>
+
+  <!-- Nos trois métiers : maillage interne vers les pages piliers -->
+  <section class="mx-auto max-w-6xl px-5 pb-16">
+    <div class="copper-rule mb-5"></div>
+    <h2 class="text-3xl font-semibold text-ink">Installation, supervision GTB et maintenance</h2>
+    <p class="mt-3 max-w-2xl leading-relaxed text-slate">
+      Un interlocuteur unique pour tout le cycle de vie de vos installations de climatisation tertiaire.
+    </p>
+    <div class="mt-8 grid gap-5 md:grid-cols-3">
+      {metiers.map((m) => (
+        <a href={m.href} class="card block p-6 transition hover:-translate-y-0.5">
+          <h3 class="font-display text-lg font-semibold text-ink">{m.titre}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate">{m.texte}</p>
+          <span class="mt-4 inline-block text-sm font-medium text-copper">En savoir plus →</span>
+        </a>
+      ))}
     </div>
   </section>
 
@@ -58,7 +112,7 @@ import { faq, heroImages } from "../data/content";
       <div class="copper-rule mb-5"></div>
       <h2 class="text-3xl font-semibold text-ink">Questions fréquentes</h2>
       <div class="mt-8 divide-y divide-mist border-y border-mist">
-        {faq.map((f) => (
+        {faqAPropos.map((f) => (
           <details class="group py-5">
             <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-medium text-ink">
               {f.q}
