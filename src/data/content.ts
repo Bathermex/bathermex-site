@@ -155,6 +155,16 @@ export const realisationsMaintenance = [
   { image: "/photos/maintenance-4.webp", typologie: "Maintenance VRV / DRV", titre: "Maintenance de groupes VRV", contexte: "Vérification et maintenance de groupes extérieurs VRV, relevés de pressions." },
 ];
 
+
+// Photos d'ENTRETIEN à intercaler dans la page Réalisations (photos réelles fournies par Brice).
+// Carte allégée : image + typologie + titre + une phrase (pas de Contexte/Solution/Résultat).
+export const realisationsEntretien = [
+  { entretien: true, image: "/photos/realisation-entretien-1.webp", typologie: "Entretien", titre: "Entretien d'une centrale de traitement d'air", phrase: "Contrôle et entretien d'une centrale de traitement d'air en local technique." },
+  { entretien: true, image: "/photos/realisation-entretien-2.webp", typologie: "Entretien", titre: "Entretien en chaufferie", phrase: "Vérification des organes et remplacement des cartouches de filtration sur un circuit en chaufferie." },
+  { entretien: true, image: "/photos/realisation-entretien-3.webp", typologie: "Entretien", titre: "Entretien d'une unité murale", phrase: "Nettoyage et contrôle d'une unité intérieure murale lors d'une visite d'entretien." },
+  { entretien: true, image: "/photos/realisation-entretien-4.webp", typologie: "Entretien", titre: "Suivi d'une chaufferie de distribution", phrase: "Contrôle d'une chaufferie de distribution : circulateurs, vannes et réseaux." },
+];
+
 // Exemple de RÉDACTION (montre le ton/longueur attendus, à remplacer)
 // --- Aperçu accueil (3 photos PROPRES à l'accueil, indépendantes des réalisations) ---
 export const apercuAccueil = [
