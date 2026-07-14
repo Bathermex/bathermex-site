@@ -157,12 +157,24 @@ export const realisationsMaintenance = [
 
 
 // Photos d'ENTRETIEN à intercaler dans la page Réalisations (photos réelles fournies par Brice).
-// Carte allégée : image + typologie + titre + une phrase (pas de Contexte/Solution/Résultat).
+// Même structure que les chantiers de pose (Contexte / Solution / Résultat) pour une carte homogène.
 export const realisationsEntretien = [
-  { entretien: true, image: "/photos/realisation-entretien-1.webp", typologie: "Entretien", titre: "Entretien d'une centrale de traitement d'air", phrase: "Contrôle et entretien d'une centrale de traitement d'air en local technique." },
-  { entretien: true, image: "/photos/realisation-entretien-2.webp", typologie: "Entretien", titre: "Entretien en chaufferie", phrase: "Vérification des organes et remplacement des cartouches de filtration sur un circuit en chaufferie." },
-  { entretien: true, image: "/photos/realisation-entretien-3.webp", typologie: "Entretien", titre: "Entretien d'une unité murale", phrase: "Nettoyage et contrôle d'une unité intérieure murale lors d'une visite d'entretien." },
-  { entretien: true, image: "/photos/realisation-entretien-4.webp", typologie: "Entretien", titre: "Suivi d'une chaufferie de distribution", phrase: "Contrôle d'une chaufferie de distribution : circulateurs, vannes et réseaux." },
+  { entretien: true, image: "/photos/realisation-entretien-1.webp", typologie: "Entretien", titre: "Entretien d'une centrale de traitement d'air",
+    contexte: "Centrale de traitement d'air en local technique, à suivre pour garantir la qualité de l'air et les performances.",
+    solution: "Contrôle des organes, relevés de pressions et vérification du bon fonctionnement lors d'une visite d'entretien.",
+    resultat: "Installation entretenue et fonctionnement fiabilisé." },
+  { entretien: true, image: "/photos/realisation-entretien-2.webp", typologie: "Entretien", titre: "Entretien en chaufferie",
+    contexte: "Chaufferie technique avec ballon tampon et traitement d'eau, nécessitant un entretien périodique.",
+    solution: "Vérification des organes hydrauliques et remplacement des cartouches de filtration.",
+    resultat: "Circuit propre et rendement préservé." },
+  { entretien: true, image: "/photos/realisation-entretien-3.webp", typologie: "Entretien", titre: "Entretien d'une unité murale",
+    contexte: "Unité intérieure murale de climatisation à entretenir régulièrement.",
+    solution: "Nettoyage des filtres et de l'échangeur, contrôle du bon fonctionnement de l'unité.",
+    resultat: "Confort et qualité d'air maintenus, consommation maîtrisée." },
+  { entretien: true, image: "/photos/realisation-entretien-4.webp", typologie: "Entretien", titre: "Suivi d'une chaufferie de distribution",
+    contexte: "Chaufferie de distribution avec circulateurs et collecteurs desservant le bâtiment.",
+    solution: "Contrôle des circulateurs, des vannes et des réseaux, vérification des paramètres.",
+    resultat: "Distribution équilibrée et installation suivie dans la durée." },
 ];
 
 // Exemple de RÉDACTION (montre le ton/longueur attendus, à remplacer)
