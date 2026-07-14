@@ -133,15 +133,15 @@ export const realisations = [
     resultat: "Surface de vente climatisée par gainables discrets, intégrés au plafond.",
   },
   {
-    slug: "logements-sociaux-aix",
+    slug: "creche-paris",
     placeholder: false,
     image: "/photos/realisation-3.webp",
-    titre: "Logements sociaux — R+6",
-    typologie: "Rénovation",
-    lieu: "Aix-en-Provence",
-    contexte: "Immeuble de 45 logements sociaux, R+6, à Aix-en-Provence.",
-    solution: "Réfection complète de l'installation : production et distribution en chaufferie (circulateurs, réseaux).",
-    resultat: "Installation entièrement rénovée pour les 45 logements.",
+    titre: "Climatisation d'une crèche",
+    typologie: "Crèche / ERP",
+    lieu: "Paris",
+    contexte: "Crèche à Paris à climatiser pour offrir un confort thermique adapté à l'accueil de jeunes enfants, été comme hiver.",
+    solution: "Production installée en toiture technique : groupes extérieurs et réseaux aérauliques calorifugés, avec distribution vers les espaces d'accueil.",
+    resultat: "Locaux climatisés et confortables, adaptés à l'accueil des enfants tout au long de l'année.",
   },
 ];
 
