@@ -2,9 +2,16 @@
 import Base from "../layouts/Base.astro";
 import PageHero from "../components/PageHero.astro";
 import CTA from "../components/CTA.astro";
-import { realisations, realisationExempleRedige, heroImages } from "../data/content";
+import { realisations, realisationExempleRedige, realisationsEntretien, heroImages } from "../data/content";
 // Grille uniforme : les 3 réalisations + le chantier détaillé = 4 fiches (2x2, aucun trou)
-const items = [...realisations, realisationExempleRedige];
+const poses = [...realisations, realisationExempleRedige];
+// Intercalage pose / entretien : pose, entretien, pose, entretien, ...
+const items = [];
+const _n = Math.max(poses.length, realisationsEntretien.length);
+for (let i = 0; i < _n; i++) {
+  if (poses[i]) items.push(poses[i]);
+  if (realisationsEntretien[i]) items.push(realisationsEntretien[i]);
+}
 ---
 
 <Base title="Réalisations" description="Chantiers de climatisation tertiaire VRV / DRV réalisés par Bathermex : contexte, solution et résultat.">

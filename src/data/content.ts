@@ -133,16 +133,48 @@ export const realisations = [
     resultat: "Surface de vente climatisée par gainables discrets, intégrés au plafond.",
   },
   {
-    slug: "logements-sociaux-aix",
+    slug: "creche-paris",
     placeholder: false,
     image: "/photos/realisation-3.webp",
-    titre: "Logements sociaux — R+6",
-    typologie: "Rénovation",
-    lieu: "Aix-en-Provence",
-    contexte: "Immeuble de 45 logements sociaux, R+6, à Aix-en-Provence.",
-    solution: "Réfection complète de l'installation : production et distribution en chaufferie (circulateurs, réseaux).",
-    resultat: "Installation entièrement rénovée pour les 45 logements.",
+    titre: "Climatisation d'une crèche",
+    typologie: "Crèche / ERP",
+    lieu: "Paris",
+    contexte: "Crèche à Paris à climatiser pour offrir un confort thermique adapté à l'accueil de jeunes enfants, été comme hiver.",
+    solution: "Production installée en toiture technique : groupes extérieurs et réseaux aérauliques calorifugés, avec distribution vers les espaces d'accueil.",
+    resultat: "Locaux climatisés et confortables, adaptés à l'accueil des enfants tout au long de l'année.",
   },
+];
+
+
+// Réalisations spécifiques à la page MAINTENANCE (photos réelles d'intervention fournies par Brice).
+// N'affiche que typologie / titre / contexte dans les cartes. Aucune donnée client nominative.
+export const realisationsMaintenance = [
+  { image: "/photos/maintenance-1.webp", typologie: "Maintenance préventive", titre: "Remplacement de filtres", contexte: "Remplacement des filtres d'une centrale de traitement d'air lors d'une visite d'entretien." },
+  { image: "/photos/maintenance-2.webp", typologie: "Maintenance curative", titre: "Intervention en chaufferie", contexte: "Intervention sur les réseaux et les organes d'une chaufferie technique." },
+  { image: "/photos/maintenance-3.webp", typologie: "Maintenance VRV / DRV", titre: "Entretien d'un groupe VRV", contexte: "Contrôle et entretien d'un groupe extérieur VRV Daikin sur site." },
+  { image: "/photos/maintenance-4.webp", typologie: "Maintenance VRV / DRV", titre: "Maintenance de groupes VRV", contexte: "Vérification et maintenance de groupes extérieurs VRV, relevés de pressions." },
+];
+
+
+// Photos d'ENTRETIEN à intercaler dans la page Réalisations (photos réelles fournies par Brice).
+// Même structure que les chantiers de pose (Contexte / Solution / Résultat) pour une carte homogène.
+export const realisationsEntretien = [
+  { entretien: true, image: "/photos/realisation-entretien-1.webp", typologie: "Entretien", titre: "Entretien d'une centrale de traitement d'air",
+    contexte: "Centrale de traitement d'air en local technique, à suivre pour garantir la qualité de l'air et les performances.",
+    solution: "Contrôle des organes, relevés de pressions et vérification du bon fonctionnement lors d'une visite d'entretien.",
+    resultat: "Installation entretenue et fonctionnement fiabilisé." },
+  { entretien: true, image: "/photos/realisation-entretien-2.webp", typologie: "Entretien", titre: "Entretien en chaufferie",
+    contexte: "Chaufferie technique avec ballon tampon et traitement d'eau, nécessitant un entretien périodique.",
+    solution: "Vérification des organes hydrauliques et remplacement des cartouches de filtration.",
+    resultat: "Circuit propre et rendement préservé." },
+  { entretien: true, image: "/photos/realisation-entretien-3.webp", typologie: "Entretien", titre: "Entretien d'une unité murale",
+    contexte: "Unité intérieure murale de climatisation à entretenir régulièrement.",
+    solution: "Nettoyage des filtres et de l'échangeur, contrôle du bon fonctionnement de l'unité.",
+    resultat: "Confort et qualité d'air maintenus, consommation maîtrisée." },
+  { entretien: true, image: "/photos/realisation-entretien-4.webp", typologie: "Entretien", titre: "Suivi d'une chaufferie de distribution",
+    contexte: "Chaufferie de distribution avec circulateurs et collecteurs desservant le bâtiment.",
+    solution: "Contrôle des circulateurs, des vannes et des réseaux, vérification des paramètres.",
+    resultat: "Distribution équilibrée et installation suivie dans la durée." },
 ];
 
 // Exemple de RÉDACTION (montre le ton/longueur attendus, à remplacer)
