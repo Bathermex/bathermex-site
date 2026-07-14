@@ -14,7 +14,13 @@ import CTA from "../components/CTA.astro";
 import { services, faq, realisations } from "../data/content";
 
 const installation = services.filter((s) => s.slug === "installation-vrv-drv");
-const faqCvc = faq.filter((f) => f.q.startsWith("Quelle différence"));
+const faqCvc = [
+  ...faq.filter((f) => f.q.startsWith("Quelle différence")),
+  {
+    q: "Intervenez-vous en copropriété ou en logement collectif ?",
+    r: "Oui. Nous avons notamment réalisé la réfection complète de l'installation d'un immeuble de 45 logements sociaux (R+6) à Aix-en-Provence : production et distribution en chaufferie. Nous travaillons avec les syndics, copropriétés et bailleurs sociaux, en PACA et en Île-de-France.",
+  },
+];
 const realisationsReelles = realisations.filter((r) => !r.placeholder);
 const domaines = ["Bureaux & tertiaire", "Commerces", "Hôtellerie-restauration", "Santé / ERP"];
 

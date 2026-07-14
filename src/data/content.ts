@@ -33,7 +33,7 @@ export const services = [
     titre: "Contrats de maintenance annuels",
     accroche: "Notre cœur d'activité : votre parc suivi toute l'année, préventif et curatif.",
     detail:
-      "Visites planifiées, contrôles d'étanchéité réglementaires, nettoyage, vérification des performances et tenue du registre des fluides. Des formules adaptées à votre parc, du préventif simple à la prise en charge complète, avec priorité d'intervention en dépannage.",
+      "Visites planifiées, contrôles d'étanchéité réglementaires, nettoyage, vérification des performances et tenue du registre des fluides, y compris sur les chaufferies d'immeubles collectifs. Des formules adaptées à votre parc, du préventif simple à la prise en charge complète, avec priorité d'intervention en dépannage.",
     points: [
       "Visites préventives planifiées selon votre parc",
       "Contrôles d'étanchéité réglementaires et registre des fluides",
@@ -59,7 +59,7 @@ export const services = [
     titre: "Travaux & installation CVC / VRV",
     accroche: "Remplacement, amélioration et installation d'équipements — en complément du contrat ou en projet dédié.",
     detail:
-      "Remplacement d'équipements vieillissants ou irréparables, amélioration d'installations existantes et projets neufs : étude, fourniture et pose de groupes extérieurs et unités intérieures, réseaux frigorifiques, raccordements et mise en service. Pour bureaux, commerces, ERP et bâtiments tertiaires.",
+      "Remplacement d'équipements vieillissants ou irréparables, amélioration d'installations existantes et projets neufs : étude, fourniture et pose de groupes extérieurs et unités intérieures, réseaux frigorifiques, raccordements et mise en service. Pour bureaux, commerces, ERP et bâtiments tertiaires. Nous intervenons également en logement collectif — copropriétés, résidences et bailleurs sociaux — pour la rénovation d'installations existantes comme pour les équipements neufs.",
     points: [
       "Remplacement d'équipements vieillissants ou irréparables",
       "Installation VRV / DRV neuve, bureaux, commerces et ERP",
@@ -143,6 +143,17 @@ export const realisations = [
     solution: "Production installée en toiture technique : groupes extérieurs et réseaux aérauliques calorifugés, avec distribution vers les espaces d'accueil.",
     resultat: "Locaux climatisés et confortables, adaptés à l'accueil des enfants tout au long de l'année.",
   },
+  {
+    slug: "logements-sociaux-aix",
+    placeholder: false,
+    image: "/photos/realisation-entretien-4.webp",
+    titre: "Logements sociaux — R+6",
+    typologie: "Logement collectif",
+    lieu: "Aix-en-Provence",
+    contexte: "Immeuble de 45 logements sociaux, R+6, à Aix-en-Provence.",
+    solution: "Réfection complète de l'installation : production et distribution en chaufferie (circulateurs, réseaux).",
+    resultat: "Installation entièrement rénovée pour les 45 logements.",
+  },
 ];
 
 
@@ -171,10 +182,6 @@ export const realisationsEntretien = [
     contexte: "Unité intérieure murale de climatisation à entretenir régulièrement.",
     solution: "Nettoyage des filtres et de l'échangeur, contrôle du bon fonctionnement de l'unité.",
     resultat: "Confort et qualité d'air maintenus, consommation maîtrisée." },
-  { entretien: true, image: "/photos/realisation-entretien-4.webp", typologie: "Entretien", titre: "Suivi d'une chaufferie de distribution",
-    contexte: "Chaufferie de distribution avec circulateurs et collecteurs desservant le bâtiment.",
-    solution: "Contrôle des circulateurs, des vannes et des réseaux, vérification des paramètres.",
-    resultat: "Distribution équilibrée et installation suivie dans la durée." },
 ];
 
 // Exemple de RÉDACTION (montre le ton/longueur attendus, à remplacer)
