@@ -37,13 +37,11 @@ for (let i = 0; i < _n; i++) {
           <div class="flex flex-1 flex-col p-7">
             <span class="eyebrow text-[0.7rem]">{r.typologie}{r.lieu ? ` · ${r.lieu}` : ""}</span>
             <h2 class="mt-2 font-display text-xl font-semibold text-ink">{r.titre}</h2>
-            {r.entretien
-              ? <p class="mt-4 text-sm leading-relaxed text-slate">{r.phrase}</p>
-              : <dl class="mt-4 space-y-3 text-sm leading-relaxed">
-                  <div><dt class="font-semibold text-petrol">Contexte</dt><dd class="text-slate">{r.contexte}</dd></div>
-                  <div><dt class="font-semibold text-petrol">Solution</dt><dd class="text-slate">{r.solution}</dd></div>
-                  <div><dt class="font-semibold text-petrol">Résultat</dt><dd class="text-slate">{r.resultat}</dd></div>
-                </dl>}
+            <dl class="mt-4 space-y-3 text-sm leading-relaxed">
+              <div><dt class="font-semibold text-petrol">Contexte</dt><dd class="text-slate">{r.contexte}</dd></div>
+              <div><dt class="font-semibold text-petrol">Solution</dt><dd class="text-slate">{r.solution}</dd></div>
+              <div><dt class="font-semibold text-petrol">Résultat</dt><dd class="text-slate">{r.resultat}</dd></div>
+            </dl>
           </div>
         </article>
       ))}
