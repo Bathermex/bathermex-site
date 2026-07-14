@@ -145,6 +145,16 @@ export const realisations = [
   },
 ];
 
+
+// Réalisations spécifiques à la page MAINTENANCE (photos réelles d'intervention fournies par Brice).
+// N'affiche que typologie / titre / contexte dans les cartes. Aucune donnée client nominative.
+export const realisationsMaintenance = [
+  { image: "/photos/maintenance-1.webp", typologie: "Maintenance préventive", titre: "Remplacement de filtres", contexte: "Remplacement des filtres d'une centrale de traitement d'air lors d'une visite d'entretien." },
+  { image: "/photos/maintenance-2.webp", typologie: "Maintenance curative", titre: "Intervention en chaufferie", contexte: "Intervention sur les réseaux et les organes d'une chaufferie technique." },
+  { image: "/photos/maintenance-3.webp", typologie: "Maintenance VRV / DRV", titre: "Entretien d'un groupe VRV", contexte: "Contrôle et entretien d'un groupe extérieur VRV Daikin sur site." },
+  { image: "/photos/maintenance-4.webp", typologie: "Maintenance VRV / DRV", titre: "Maintenance de groupes VRV", contexte: "Vérification et maintenance de groupes extérieurs VRV, relevés de pressions." },
+];
+
 // Exemple de RÉDACTION (montre le ton/longueur attendus, à remplacer)
 // --- Aperçu accueil (3 photos PROPRES à l'accueil, indépendantes des réalisations) ---
 export const apercuAccueil = [
