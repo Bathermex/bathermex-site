@@ -51,7 +51,7 @@ attendus** : retire-le une fois tes vrais chantiers en ligne.
   (pas de label inventé : risque juridique).
 
 ## 🟨 Priorité 5 — Mentions à confirmer (`src/data/content.ts`, bloc `reassurance`)
-- F-Gas : **mention exacte de la catégorie d'attestation** fluides frigorigènes
+- ~~Certification fluides~~ : **RETIRÉ DU PÉRIMÈTRE** — décision définitive Brice 15/07/2026. Ne plus réclamer, ne plus tracer, ne plus rouvrir.
 - Décennale : **nom de l'assureur** (et n° de police si tu veux l'afficher)
 
 ## 🟦 Priorité 6 — Logo : version pour fond sombre
