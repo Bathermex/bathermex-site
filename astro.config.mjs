@@ -12,5 +12,5 @@ export default defineConfig({
     // M11 CSP : force l'externalisation des petits scripts (aucun script inline => CSP sans 'unsafe-inline')
     build: { assetsInlineLimit: 0 },
   },
-  integrations: [sitemap()],
+  integrations: [sitemap({ filter: (page) => !page.includes('/merci') })],
 });
