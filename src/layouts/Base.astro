@@ -9,8 +9,9 @@ import { site } from "../data/site";
 interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
 }
-const { title, description } = Astro.props;
+const { title, description, noindex } = Astro.props;
 const pageTitle = title ? `${title} · ${site.name}` : `${site.name} — ${site.baseline}`;
 const pageDesc = description ?? site.description;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://bathermex.com").href;
@@ -28,6 +29,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://bathermex.c
     <title>{pageTitle}</title>
     <meta name="description" content={pageDesc} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
     <meta name="theme-color" content="#0e1a1f" />
 
     <!-- Open Graph -->
@@ -39,14 +41,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://bathermex.c
     <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- schema.org LocalBusiness (compléter SIRET/tél/adresse réels) -->
+    <!-- schema.org LocalBusiness — adresse alignée Kbis + fiche Google (NAP) -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "HVACBusiness",
       name: "Bathermex",
       description: site.description,
       areaServed: ["Provence-Alpes-Côte d'Azur", "Île-de-France"],
-      address: { "@type": "PostalAddress", addressLocality: "Allauch", postalCode: "13190", addressCountry: "FR" },
+      address: { "@type": "PostalAddress", streetAddress: site.contact.adresse, addressLocality: "Allauch", postalCode: "13190", addressCountry: "FR" },
+      geo: { "@type": "GeoCoordinates", latitude: 43.3562432, longitude: 5.4744316 },
       telephone: site.contact.tel,
       url: canonical,
       logo: "https://bathermex.com/logo-icon.png",

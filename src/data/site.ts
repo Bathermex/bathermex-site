@@ -24,7 +24,7 @@ export const site = {
   contact: {
     tel: "04 42 72 14 56",
     email: "bathermex@bathermex.com",
-    adresse: "Avenue des Monts Blancs",
+    adresse: "Chemin des Monts Blancs",
     cpVille: "13190 Allauch",
   },
 
