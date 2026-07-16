@@ -6,6 +6,10 @@
 // ============================================================
 export const faqMaintenanceExtra = [
   {
+    q: "Sous quel délai intervenez-vous ?",
+    r: "Les visites préventives sont planifiées avec vous en amont, sur un calendrier annuel construit selon votre parc. Pour une intervention curative, le délai dépend du planning en cours — sauf urgence : nos clients sous contrat bénéficient d'une intervention sous 24 heures.",
+  },
+  {
     q: "Reprenez-vous des installations que vous n'avez pas posées ?",
     r: "Oui. Nous reprenons des parcs existants quel que soit l'installateur d'origine. La reprise commence par un état des lieux : inventaire des équipements, relevé des charges de fluide, état des organes de sécurité, historique disponible. C'est cet état des lieux qui détermine le périmètre du contrat.",
   },
