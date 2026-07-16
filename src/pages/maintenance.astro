@@ -1,33 +1,54 @@
 ---
 // ============================================================
-// /maintenance — S1 (Lot S). Page "hors menu" (nav ajoutée en S3).
-// CONTENU 100% ♻️ REPRIS DE LA PROD (aucun texte inventé) :
+// /maintenance — S1 (Lot S) + Lot SEO item 2.
+// BASE ♻️ REPRISE DE LA PROD :
 //   hero  = hero + eyebrow de l'ancienne home pivot
 //   offre = cartes services "maintenance" + "sav-depannage" (exports content.ts)
 //   méthode = "Un parc suivi toute l'année" (export methode, 100% maintenance)
 //   FAQ   = question "Proposez-vous des contrats de maintenance ?" (export faq)
+// AJOUTS ÉDITORIAUX Lot SEO item 2 — validés par Brice le 15/07/2026 :
+//   + section "Préventif ou curatif" / + section "Vos obligations réglementaires"
+//   + section "Où nous intervenons" / + 4 questions FAQ (faq-maintenance.ts)
+//   + FAQPage schema / title + description + H1 réécrits (ancrage Marseille)
+//   Réglementation BACS sourcée : décrets 2020-887, 2023-259, 2025-1343 (26/12/2025).
+//   ⚠️ F-Gas : aucune fréquence chiffrée ni revendication de certification tant
+//      que l'attestation de capacité Bathermex n'est pas fournie.
 // ============================================================
 import Base from "../layouts/Base.astro";
 import PageHero from "../components/PageHero.astro";
 import CTA from "../components/CTA.astro";
 import { services, methode, faq, realisations, realisationsMaintenance, heroImages } from "../data/content";
+import { faqMaintenanceExtra } from "../data/faq-maintenance";
 import { site } from "../data/site";
 
 const offre = services.filter((s) => ["maintenance", "sav-depannage"].includes(s.slug));
-const faqMaintenance = faq.filter((f) => f.q.startsWith("Proposez-vous"));
+const faqMaintenance = [
+  ...faq.filter((f) => f.q.startsWith("Proposez-vous")),
+  ...faqMaintenanceExtra,
+];
+const zonesPaca = ["Marseille", "Allauch", "Aubagne", "Aix-en-Provence", "Marignane", "Salon-de-Provence"];
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqMaintenance.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.r },
+  })),
+};
 const realisationsReelles = realisations.filter((r) => !r.placeholder);
 const domaines = ["Bureaux & tertiaire", "Commerces", "Hôtellerie-restauration", "Santé / ERP"];
 ---
 
 <Base
-  title="Maintenance climatisation tertiaire PACA"
-  description="Contrats de maintenance annuels, entretien préventif et dépannage de climatisation tertiaire en PACA et Île-de-France. Un parc suivi toute l'année."
+  title="Contrat de maintenance climatisation tertiaire · Marseille & Paris"
+  description="Contrats de maintenance CVC pour bureaux, commerces, hôtels et ERP à Marseille, en PACA et en Île-de-France. Préventif, curatif, contrôles réglementaires, dépannage prioritaire."
 >
   <PageHero
     image="/photos/hero-maintenance.webp"
     imageAlt="Technicien Bathermex en intervention de maintenance de climatisation sur toiture"
     eyebrow="Maintenance CVC · Contrats annuels · Préventif & curatif · PACA & Île-de-France"
-    title="Maintenance de climatisation tertiaire : contrats annuels, préventif et dépannage"
+    title="Maintenance de climatisation tertiaire à Marseille et en Île-de-France : contrats annuels, préventif et dépannage"
     intro={site.tagline}
   />
 
@@ -52,6 +73,31 @@ const domaines = ["Bureaux & tertiaire", "Commerces", "Hôtellerie-restauration"
     </div>
   </section>
 
+  <!-- Préventif / curatif — Lot SEO item 2 -->
+  <section class="bg-paper">
+    <div class="mx-auto max-w-6xl px-5 py-14">
+      <div class="copper-rule mb-5"></div>
+      <h2 class="max-w-3xl text-3xl font-semibold text-ink">Préventif ou curatif : ce que couvre votre contrat de maintenance</h2>
+      <p class="mt-4 max-w-3xl leading-relaxed text-slate">
+        Un contrat de maintenance CVC ne se résume pas à une visite annuelle. Selon votre parc, votre budget et le niveau de risque acceptable pour votre exploitation, le périmètre se construit sur deux briques complémentaires.
+      </p>
+      <div class="mt-9 grid gap-8 md:grid-cols-2">
+        <div>
+          <h3 class="font-display text-xl font-semibold text-ink">L'entretien préventif : anticiper la panne</h3>
+          <p class="mt-3 leading-relaxed text-slate">
+            C'est le socle. Visites planifiées selon la nature et la charge de vos équipements, nettoyage des échangeurs et remplacement des filtres, contrôle des pressions et des performances, vérification des organes de sécurité, relevé des dérives de consommation. Objectif : détecter la dérive avant qu'elle ne devienne un arrêt d'exploitation. Sur un parc VRV / DRV tertiaire, l'essentiel des pannes lourdes se prépare des mois à l'avance et se voit à l'entretien.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-display text-xl font-semibold text-ink">Le curatif : traiter la panne quand elle survient</h3>
+          <p class="mt-3 leading-relaxed text-slate">
+            Diagnostic, réparation, remise en service. Aucun préventif n'élimine le risque de panne — il le réduit et le rend prévisible. C'est pourquoi nos contrats intègrent une priorité d'intervention : sous contrat, votre parc est déjà connu de nos techniciens, ce qui raccourcit le diagnostic.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Bandeau photo -->
   <section class="mx-auto max-w-6xl px-5 pb-4">
     <figure>
@@ -70,6 +116,30 @@ const domaines = ["Bureaux & tertiaire", "Commerces", "Hôtellerie-restauration"
           <li class="rounded-full border border-mist bg-fog px-4 py-1.5 text-sm text-slate">{d}</li>
         ))}
       </ul>
+    </div>
+  </section>
+
+  <!-- Obligations réglementaires — Lot SEO item 2 -->
+  <section class="mx-auto max-w-6xl px-5 py-16">
+    <div class="copper-rule mb-5"></div>
+    <h2 class="max-w-3xl text-3xl font-semibold text-ink">Vos obligations réglementaires : ce que la maintenance couvre</h2>
+    <p class="mt-4 max-w-3xl leading-relaxed text-slate">
+      Exploiter un parc de climatisation tertiaire, ce n'est pas seulement le faire fonctionner : c'est aussi tenir des obligations qui pèsent sur le propriétaire ou l'exploitant. Un contrat de maintenance bien construit les absorbe.
+    </p>
+    <div class="mt-9 grid gap-8 md:grid-cols-2">
+      <div>
+        <h3 class="font-display text-xl font-semibold text-ink">Fluides frigorigènes : étanchéité et registre</h3>
+        <p class="mt-3 leading-relaxed text-slate">
+          Les installations contenant des fluides frigorigènes sont soumises à des contrôles d'étanchéité périodiques et à la tenue d'un registre. La fréquence dépend de la charge de l'installation. Ces contrôles relèvent d'opérateurs disposant de l'attestation de capacité requise. Nous réalisons les contrôles et tenons le registre pour les parcs que nous suivons.
+        </p>
+      </div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-ink">Décret BACS : la GTB devient obligatoire</h3>
+        <p class="mt-3 leading-relaxed text-slate">
+          Le décret BACS impose l'installation d'un système d'automatisation et de contrôle — une GTB — dans les bâtiments tertiaires équipés de systèmes de chauffage ou de climatisation dépassant certains seuils de puissance. Les bâtiments dont les systèmes dépassent 290 kW sont concernés depuis le 1<sup>er</sup> janvier 2025. Pour les puissances comprises entre 70 et 290 kW, l'échéance a été reportée au 1<sup>er</sup> janvier 2030. Une exemption reste possible si une étude démontre un temps de retour sur investissement supérieur à dix ans.
+        </p>
+        <a href="/solutions-gtb/" class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-copper hover:underline">Découvrir nos solutions GTB <span aria-hidden="true">→</span></a>
+      </div>
     </div>
   </section>
 
@@ -132,5 +202,25 @@ const domaines = ["Bureaux & tertiaire", "Commerces", "Hôtellerie-restauration"
     </section>
   )}
 
+  <!-- Où nous intervenons — Lot SEO item 2 (aligné zones fiche Google) -->
+  <section class="bg-paper">
+    <div class="mx-auto max-w-6xl px-5 py-14">
+      <div class="copper-rule mb-5"></div>
+      <h2 class="text-3xl font-semibold text-ink">Où nous intervenons</h2>
+      <p class="mt-4 max-w-3xl leading-relaxed text-slate">
+        Notre base historique est à Allauch, aux portes de Marseille. Nos équipes interviennent en maintenance de climatisation tertiaire sur Marseille, Allauch, Aubagne, Aix-en-Provence, Marignane, Salon-de-Provence et l'ensemble des Bouches-du-Rhône, ainsi que sur la région PACA.
+      </p>
+      <p class="mt-3 max-w-3xl leading-relaxed text-slate">
+        Notre seconde implantation couvre Paris et l'Île-de-France, pour les parcs multi-sites dont les exploitants veulent un interlocuteur unique sur les deux régions.
+      </p>
+      <ul class="mt-6 flex flex-wrap gap-2">
+        {zonesPaca.map((z) => (
+          <li class="rounded-full border border-mist bg-fog px-4 py-1.5 text-sm text-slate">{z}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
   <CTA title="Un contrat, une panne ?" text="Décrivez-nous votre parc : nous revenons vers vous avec une formule de maintenance adaptée." />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </Base>
