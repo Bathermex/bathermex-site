@@ -49,18 +49,45 @@ const avantages = [
 ];
 
 // ⬜ FAQ à écrire/valider direction — laissée vide volontairement (rien de non validé ne s'affiche)
-const faqGtb: { q: string; r: string }[] = [];
+// ✏️ FAQ Lot SEO item 3 — À VALIDER DIRECTION avant merge (comme le reste de la page)
+const faqGtb: { q: string; r: string }[] = [
+  {
+    q: "Qu'est-ce qu'une GTB ?",
+    r: "La GTB (gestion technique du bâtiment) est le système qui centralise le pilotage des équipements techniques d'un bâtiment — chauffage, climatisation, ventilation — sur une interface unique. Elle permet de suivre les températures, les états de marche et les alarmes, de programmer les horaires et de détecter les dérives de consommation.",
+  },
+  {
+    q: "Mon bâtiment est-il concerné par le décret BACS ?",
+    r: "Le décret BACS s'applique aux bâtiments tertiaires équipés de systèmes de chauffage ou de climatisation, avec un calendrier selon la puissance : les systèmes de plus de 290 kW sont concernés depuis le 1er janvier 2025, et l'échéance pour les puissances comprises entre 70 et 290 kW est fixée au 1er janvier 2030. Une exemption est possible lorsque l'étude démontre un retour sur investissement supérieur à dix ans. Un audit de votre site permet de trancher votre cas précis.",
+  },
+  {
+    q: "Peut-on raccorder des équipements existants, de marques différentes ?",
+    r: "Oui, c'est le cœur de l'intégration complète : nous raccordons vos équipements existants, même hétérogènes, à une supervision unique. Il n'est pas nécessaire de remplacer votre parc pour le piloter.",
+  },
+  {
+    q: "La télémaintenance remplace-t-elle les visites sur site ?",
+    r: "Elle les complète. La majorité des diagnostics et des réglages se font à distance, ce qui accélère la réaction et réduit les déplacements. Les interventions sur site restent nécessaires pour les opérations physiques — et sont déclenchées à bon escient, sur la base de ce que la supervision a déjà identifié.",
+  },
+];
+const faqSchemaGtb = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqGtb.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.r },
+  })),
+};
 ---
 
 <Base
-  title="Supervision & télémaintenance CVC"
-  description="Bathermex supervise et télé-maintient vos installations de climatisation et chauffage à distance. Intégration complète, PACA et Île-de-France."
+  title="GTB, supervision & télémaintenance CVC · Marseille & Paris"
+  description="GTB et télémaintenance de vos installations de climatisation et chauffage : supervision à distance, intégration complète, conformité décret BACS. Marseille, PACA et Île-de-France."
 >
   <PageHero
     image="/photos/hero-gtb.webp"
     imageAlt="Écran de supervision GTB affichant le plan technique d'un bâtiment"
     eyebrow="Solutions GTB"
-    title="Supervision et télémaintenance de vos installations CVC"
+    title="GTB, supervision et télémaintenance de vos installations CVC à Marseille et en Île-de-France"
     intro="Gardez le contrôle de votre confort et de vos consommations, à distance : supervision, télémaintenance et intégration de vos équipements de climatisation et de chauffage."
   />
 
@@ -178,5 +205,29 @@ const faqGtb: { q: string; r: string }[] = [];
     </section>
   )}
 
+  <!-- Décret BACS — Lot SEO item 3 (sources : décrets 2020-887, 2023-259, 2025-1343) -->
+  <section class="mx-auto max-w-6xl px-5 py-16">
+    <div class="copper-rule mb-5"></div>
+    <h2 class="max-w-3xl text-3xl font-semibold text-ink">Décret BACS : ce que la réglementation impose</h2>
+    <p class="mt-4 max-w-3xl leading-relaxed text-slate">
+      Le décret BACS rend progressivement obligatoire l'installation d'un système d'automatisation et de contrôle — une GTB — dans les bâtiments tertiaires équipés de systèmes de chauffage ou de climatisation. Les bâtiments dont les systèmes dépassent 290 kW sont concernés depuis le 1<sup>er</sup> janvier 2025 ; pour les puissances comprises entre 70 et 290 kW, l'échéance est fixée au 1<sup>er</sup> janvier 2030. Une exemption reste possible lorsque l'étude démontre un temps de retour sur investissement supérieur à dix ans.
+    </p>
+    <p class="mt-3 max-w-3xl leading-relaxed text-slate">
+      Notre rôle : auditer votre site, déterminer si votre bâtiment est concerné et à quelle échéance, puis mettre en place la solution proportionnée — de la supervision simple à l'intégration complète. Le pilotage rejoint ensuite vos <a href="/maintenance/" class="font-semibold text-copper hover:underline">obligations d'exploitation et de maintenance</a>.
+    </p>
+  </section>
+
+  <!-- Où nous intervenons — Lot SEO item 3 (aligné zones fiche Google) -->
+  <section class="bg-paper">
+    <div class="mx-auto max-w-6xl px-5 py-14">
+      <div class="copper-rule mb-5"></div>
+      <h2 class="text-3xl font-semibold text-ink">Où nous intervenons</h2>
+      <p class="mt-4 max-w-3xl leading-relaxed text-slate">
+        Nous déployons et supervisons des installations sur Marseille, Allauch, Aubagne, Aix-en-Provence, Marignane, Salon-de-Provence, l'ensemble des Bouches-du-Rhône et la région PACA, ainsi que sur Paris et l'Île-de-France. La supervision à distance couvre les deux régions depuis une même plateforme.
+      </p>
+    </div>
+  </section>
+
   <CTA title="Un besoin de supervision ?" text="Parlons de vos installations et de vos objectifs de pilotage à distance." />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchemaGtb)} />
 </Base>
