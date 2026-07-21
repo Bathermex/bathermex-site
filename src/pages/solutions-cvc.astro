@@ -13,9 +13,20 @@ import PageHero from "../components/PageHero.astro";
 import CTA from "../components/CTA.astro";
 import { services, faq, realisations } from "../data/content";
 
+// FAQPage schema — reflète la FAQ visible
+
+
 const installation = services.filter((s) => s.slug === "installation-vrv-drv");
 const faqCvc = [
   ...faq.filter((f) => f.q.startsWith("Quelle différence")),
+  {
+    q: "Faut-il prévoir la maintenance dès l'installation ?",
+    r: "C'est la meilleure approche. Une installation VRV / DRV neuve garde ses performances si elle est entretenue dès la première année : contrôles, nettoyages, suivi des charges de fluide. Nous proposons un contrat de maintenance en continuité de la pose — c'est aussi ce qui garantit le meilleur suivi, puisque votre parc est déjà documenté par nos équipes.",
+  },
+  {
+    q: "L'étude est-elle réalisée avant le devis ?",
+    r: "Oui, systématiquement. La visite technique et le bilan des besoins précèdent tout chiffrage : c'est ce qui permet un dimensionnement juste — ni sous-dimensionné (confort dégradé), ni surdimensionné (surcoût à l'achat et à l'usage).",
+  },
   {
     q: "Intervenez-vous en copropriété ou en logement collectif ?",
     r: "Oui. Nous avons notamment réalisé la réfection complète de l'installation d'un immeuble de 45 logements sociaux (R+6) à Aix-en-Provence : production et distribution en chaufferie. Nous travaillons avec les syndics, copropriétés et bailleurs sociaux, en PACA et en Île-de-France.",
@@ -23,6 +34,15 @@ const faqCvc = [
 ];
 const realisationsReelles = realisations.filter((r) => !r.placeholder);
 const domaines = ["Bureaux & tertiaire", "Commerces", "Hôtellerie-restauration", "Santé / ERP"];
+const faqSchemaCvc = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqCvc.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.r },
+  })),
+};
 
 // ✏️ À RECRÉER (D2) — volet installation, relecture Brice
 const methodeInstallation = [
@@ -34,14 +54,14 @@ const methodeInstallation = [
 ---
 
 <Base
-  title="Installation climatisation VRV/DRV"
-  description="Étude, pose et mise en service de climatisation VRV/DRV, chauffage et ventilation pour le tertiaire, en PACA et Île-de-France. Devis rapide."
+  title="Installation climatisation VRV/DRV · Marseille & Paris"
+  description="Étude, pose et mise en service de climatisation VRV/DRV pour bureaux, commerces, hôtels et ERP à Marseille, en PACA et en Île-de-France. Devis rapide."
 >
   <PageHero
     image="/photos/hero-cvc.webp"
     imageAlt="Réseau de gaines de ventilation en bâtiment tertiaire — installation CVC VRV/DRV"
     eyebrow="Solutions CVC"
-    title="Installation de climatisation VRV/DRV tertiaire"
+    title="Installation de climatisation VRV/DRV tertiaire à Marseille et en Île-de-France"
     intro="Remplacement, amélioration et installation d'équipements — en complément du contrat ou en projet dédié."
   />
 
@@ -63,6 +83,31 @@ const methodeInstallation = [
           </div>
         </article>
       ))}
+    </div>
+  </section>
+
+  <!-- Pourquoi le VRV/DRV — Lot SEO item 3 -->
+  <section class="bg-paper">
+    <div class="mx-auto max-w-6xl px-5 py-14">
+      <div class="copper-rule mb-5"></div>
+      <h2 class="max-w-3xl text-3xl font-semibold text-ink">Pourquoi le VRV / DRV pour un bâtiment tertiaire</h2>
+      <p class="mt-4 max-w-3xl leading-relaxed text-slate">
+        La technologie VRV / DRV (débit de réfrigérant variable) module en permanence la puissance délivrée selon les besoins réels de chaque zone du bâtiment. Concrètement : des bureaux orientés sud rafraîchis pendant que des salles de réunion côté nord sont chauffées, à partir de la même installation.
+      </p>
+      <div class="mt-9 grid gap-8 md:grid-cols-3">
+        <div>
+          <h3 class="font-display text-lg font-semibold text-ink">Zonage indépendant</h3>
+          <p class="mt-2 leading-relaxed text-slate">Chaque zone est pilotée séparément : température, horaires, priorités. Adapté aux plateaux de bureaux, commerces, hôtels et établissements de santé où les usages diffèrent d'un espace à l'autre.</p>
+        </div>
+        <div>
+          <h3 class="font-display text-lg font-semibold text-ink">Sobriété à l'usage</h3>
+          <p class="mt-2 leading-relaxed text-slate">La modulation du débit évite les cycles marche/arrêt permanents : l'installation ne délivre que la puissance nécessaire, au moment où elle est nécessaire.</p>
+        </div>
+        <div>
+          <h3 class="font-display text-lg font-semibold text-ink">Discrétion et intégration</h3>
+          <p class="mt-2 leading-relaxed text-slate">Unités intérieures compactes (cassettes, gainables, consoles) qui s'intègrent aux faux plafonds et aux contraintes architecturales des sites tertiaires occupés.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -154,5 +199,20 @@ const methodeInstallation = [
     </section>
   )}
 
+  <!-- Où nous intervenons — Lot SEO item 3 (aligné zones fiche Google) -->
+  <section class="bg-paper">
+    <div class="mx-auto max-w-6xl px-5 py-14">
+      <div class="copper-rule mb-5"></div>
+      <h2 class="text-3xl font-semibold text-ink">Où nous intervenons</h2>
+      <p class="mt-4 max-w-3xl leading-relaxed text-slate">
+        Nos équipes d'installation interviennent depuis Allauch sur Marseille, Aubagne, Aix-en-Provence, Marignane, Salon-de-Provence et l'ensemble des Bouches-du-Rhône et de la région PACA, et depuis notre implantation francilienne sur Paris et l'Île-de-France.
+      </p>
+      <p class="mt-3 max-w-3xl leading-relaxed text-slate">
+        Après la mise en service, la continuité est assurée par nos <a href="/maintenance/" class="font-semibold text-copper hover:underline">contrats de maintenance</a> et, pour le pilotage à distance, par nos <a href="/solutions-gtb/" class="font-semibold text-copper hover:underline">solutions GTB</a>.
+      </p>
+    </div>
+  </section>
+
   <CTA title="Un projet d'installation ?" text="Décrivez-nous votre site : nous revenons vers vous avec une étude et un chiffrage adaptés." />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchemaCvc)} />
 </Base>
